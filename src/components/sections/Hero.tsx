@@ -22,7 +22,7 @@ export function Hero() {
       <div className="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-bp-accent/[0.04] blur-3xl" />
 
       <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-7 md:pt-9">
-        <BlankPrimeLogo size="md" showTagline={false} />
+        <BlankPrimeLogo size="md" priority />
         <a
           href={SOFIA_WHATSAPP}
           target="_blank"
