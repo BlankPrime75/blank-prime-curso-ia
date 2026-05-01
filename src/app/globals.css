@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-bp-bg: #0a0a0f;
+  --color-bp-bg-elevated: #0d0d14;
+  --color-bp-bg-card: #101019;
+  --color-bp-text-primary: #8c95a8;
+  --color-bp-text-secondary: #5a6478;
+  --color-bp-text-muted: #3a4458;
+  --color-bp-text-bright: #b4bccc;
+  --color-bp-accent: #c9a961;
+  --color-bp-accent-hover: #cfae63;
+  --color-bp-accent-soft: rgba(201, 169, 97, 0.12);
+  --color-bp-border: rgba(140, 149, 168, 0.12);
+  --color-bp-border-strong: rgba(140, 149, 168, 0.22);
+  --color-bp-danger: #6b5560;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-bp-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bp-bg);
+    color: var(--color-bp-text-primary);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: rgba(201, 169, 97, 0.25);
+    color: #e8d9b0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(140, 149, 168, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(140, 149, 168, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .grid-bg-soft {
+    background-image:
+      linear-gradient(to right, rgba(140, 149, 168, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(140, 149, 168, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .radial-fade-bottom {
+    mask-image: radial-gradient(
+      ellipse at center top,
+      black 30%,
+      transparent 80%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse at center top,
+      black 30%,
+      transparent 80%
+    );
+  }
+
+  .glow-gold {
+    box-shadow:
+      0 0 0 1px rgba(201, 169, 97, 0.18),
+      0 8px 32px -8px rgba(201, 169, 97, 0.25);
+  }
+
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.18) 50%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+  }
+
+  .shine:hover::after {
+    transform: translateX(100%);
+  }
+}
