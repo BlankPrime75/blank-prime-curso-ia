@@ -2,14 +2,24 @@ import { CtaButton } from "@/components/CtaButton";
 import { BlankPrimeLogo } from "@/components/BlankPrimeLogo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { SOFIA_WHATSAPP, SOFIA_WHATSAPP_DATAS } from "@/lib/constants";
+import {
+  SOFIA_WHATSAPP,
+  SOFIA_WHATSAPP_DATAS,
+  TURMA_TOTAL_VAGAS,
+  TURMA_VAGAS_PREENCHIDAS,
+} from "@/lib/constants";
+
+const vagasInfo =
+  TURMA_VAGAS_PREENCHIDAS > 0 && TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS
+    ? `${TURMA_VAGAS_PREENCHIDAS} de ${TURMA_TOTAL_VAGAS} vagas preenchidas — restam ${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS}`
+    : `${TURMA_TOTAL_VAGAS} vagas no total — turma fecha ao completar`;
 
 const info = [
   { label: "Formato", value: "Presencial" },
   { label: "Duração", value: "4 encontros · 3h cada · 12h no total" },
-  { label: "Turma", value: "Máximo 30 empresários" },
+  { label: "Turma", value: vagasInfo },
   { label: "Certificado", value: "Emitido pela Blank Prime ao final do curso" },
-  { label: "Inscrições", value: "Vagas limitadas — atendimento individual com a Sofia" },
+  { label: "Inscrições", value: "Atendimento individual com a Sofia" },
 ];
 
 export function FinalCta() {

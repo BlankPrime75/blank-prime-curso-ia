@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { Problem } from "@/components/sections/Problem";
 import { Agitation } from "@/components/sections/Agitation";
 import { Solution } from "@/components/sections/Solution";
@@ -22,6 +23,7 @@ export default function Home() {
       <SocialProof />
       <Audience />
       <FinalCta />
+      <StickyMobileCta />
     </main>
   );
 }

@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { CtaButton } from "@/components/CtaButton";
 import { BlankPrimeLogo } from "@/components/BlankPrimeLogo";
-import { SOFIA_WHATSAPP } from "@/lib/constants";
+import {
+  SOFIA_WHATSAPP,
+  TURMA_TOTAL_VAGAS,
+  TURMA_VAGAS_PREENCHIDAS,
+} from "@/lib/constants";
 
 const headline = [
   ["Sua", "concorrência"],
@@ -117,9 +121,18 @@ export function Hero() {
           <CtaButton href={SOFIA_WHATSAPP} size="lg">
             Falar com a Sofia e garantir minha vaga
           </CtaButton>
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-bp-text-muted">
-            Vagas limitadas · 30 empresários
-          </span>
+          <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.2em] text-bp-text-muted">
+            {TURMA_VAGAS_PREENCHIDAS > 0 && TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS ? (
+              <>
+                <span className="text-bp-accent">
+                  {TURMA_VAGAS_PREENCHIDAS} de {TURMA_TOTAL_VAGAS} vagas preenchidas
+                </span>
+                <span>Restam {TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS} · turma fecha ao atingir 30</span>
+              </>
+            ) : (
+              <span>Vagas limitadas · {TURMA_TOTAL_VAGAS} empresários · turma fecha em até 15 dias</span>
+            )}
+          </div>
         </motion.div>
 
         <motion.div

@@ -56,23 +56,39 @@ export function Outcome() {
           </div>
 
           <div className="md:col-span-5">
-            <div className="sticky top-24 rounded-2xl border border-bp-accent/25 bg-bp-bg p-8 glow-gold">
-              <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-accent">
-                Conta simples
+            <div className="sticky top-24 space-y-4">
+              <div className="rounded-2xl border border-bp-accent/25 bg-bp-bg p-8 glow-gold">
+                <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-accent">
+                  Conta simples
+                </div>
+                <p className="mt-6 text-2xl font-semibold leading-tight tracking-tight text-bp-text-bright md:text-3xl">
+                  Se você economizar{" "}
+                  <span className="text-bp-accent">5 horas por semana</span> com o
+                  que aprender,
+                </p>
+                <p className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-bp-text-bright md:text-3xl">
+                  o curso se paga{" "}
+                  <span className="text-bp-accent">no primeiro mês.</span>
+                </p>
+                <div className="mt-7 h-px w-full bg-bp-border" />
+                <p className="mt-6 text-sm text-bp-text-secondary">
+                  O resto é vantagem competitiva. Pelos próximos 2 anos.
+                </p>
               </div>
-              <p className="mt-6 text-2xl font-semibold leading-tight tracking-tight text-bp-text-bright md:text-3xl">
-                Se você economizar{" "}
-                <span className="text-bp-accent">5 horas por semana</span> com o
-                que aprender,
-              </p>
-              <p className="mt-3 text-2xl font-semibold leading-tight tracking-tight text-bp-text-bright md:text-3xl">
-                o curso se paga{" "}
-                <span className="text-bp-accent">no primeiro mês.</span>
-              </p>
-              <div className="mt-7 h-px w-full bg-bp-border" />
-              <p className="mt-6 text-sm text-bp-text-secondary">
-                O resto é vantagem competitiva. Pelos próximos 2 anos.
-              </p>
+
+              <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-6">
+                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
+                  Sobre o investimento
+                </div>
+                <p className="mt-4 text-base text-bp-text-primary md:text-lg">
+                  Equivale a contratar um colaborador júnior por{" "}
+                  <span className="text-bp-text-bright font-medium">um único mês</span>
+                  {" "}— mas o método fica com você e sua equipe pra sempre.
+                </p>
+                <p className="mt-3 text-sm text-bp-text-secondary">
+                  Condições especiais pra empresários do RS. Valor exato e formas de pagamento direto com a Sofia.
+                </p>
+              </div>
             </div>
           </div>
         </div>
