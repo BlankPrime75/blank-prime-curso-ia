@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { WHATSAPP_DUVIDAS } from "@/lib/constants";
+import { trackWhatsAppClick } from "@/lib/track";
 
 function WhatsAppGlyph({ className }: { className?: string }) {
   return (
@@ -20,6 +21,7 @@ export function FloatingWhatsApp() {
       href={WHATSAPP_DUVIDAS}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackWhatsAppClick("fab")}
       aria-label="Tirar dúvidas no WhatsApp"
       className={`group fixed bottom-4 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_28px_-4px_rgba(37,211,102,0.5)] transition-all duration-300 sm:bottom-6 sm:right-6 sm:h-16 sm:w-16 ${
         mounted ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"

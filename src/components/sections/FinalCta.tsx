@@ -6,20 +6,13 @@ import { AiBackground } from "@/components/AiBackground";
 import {
   SYMPLA_CHECKOUT,
   WHATSAPP_DUVIDAS,
-  TURMA_TOTAL_VAGAS,
-  TURMA_VAGAS_PREENCHIDAS,
 } from "@/lib/constants";
-
-const vagasInfo =
-  TURMA_VAGAS_PREENCHIDAS > 0 && TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS
-    ? `${TURMA_VAGAS_PREENCHIDAS} de ${TURMA_TOTAL_VAGAS} vagas preenchidas, restam ${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS}`
-    : `${TURMA_TOTAL_VAGAS} vagas no total, turma fecha ao completar`;
 
 const info = [
   { label: "Formato", value: "Presencial · CICS Canoas" },
   { label: "Datas", value: "9, 16, 23 e 30 de Junho de 2026 · Terças, 18h30 às 21h30" },
   { label: "Duração", value: "4 encontros · 3h cada · 12h no total" },
-  { label: "Turma", value: vagasInfo },
+  { label: "Turma", value: "Reduzida · vagas limitadas" },
   { label: "Inscrição", value: "Compra direta e segura pelo Sympla" },
 ];
 
@@ -92,13 +85,18 @@ export function FinalCta() {
                 </p>
 
                 <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:flex-wrap">
-                  <CtaButton href={SYMPLA_CHECKOUT} size="lg">
+                  <CtaButton
+                    href={SYMPLA_CHECKOUT}
+                    size="lg"
+                    track={{ type: "sympla", origem: "final-cta" }}
+                  >
                     Garantir minha vaga no Sympla
                   </CtaButton>
                   <CtaButton
                     href={WHATSAPP_DUVIDAS}
                     variant="secondary"
                     size="lg"
+                    track={{ type: "whatsapp", origem: "final-cta" }}
                   >
                     Tirar uma dúvida no WhatsApp
                   </CtaButton>
@@ -115,7 +113,7 @@ export function FinalCta() {
                   Você tem 4 encontros de distância da decisão certa.
                 </p>
                 <p className="mt-4 font-medium text-bp-accent">
-                  Garanta sua vaga agora. As 30 cadeiras enchem rápido.
+                  Garanta sua vaga agora. As vagas enchem rápido.
                 </p>
               </blockquote>
             </div>

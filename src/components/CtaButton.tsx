@@ -1,6 +1,11 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { type ReactNode } from "react";
+import { trackSymplaClick, trackWhatsAppClick } from "@/lib/track";
+
+type TrackInfo = { type: "sympla" | "whatsapp"; origem: string };
 
 type Props = {
   href: string;
@@ -9,6 +14,8 @@ type Props = {
   size?: "md" | "lg";
   className?: string;
   showArrow?: boolean;
+  /** Dispara evento no Meta Pixel ao clicar (objeto serializável, ok em server components) */
+  track?: TrackInfo;
 };
 
 export function CtaButton({
@@ -18,6 +25,7 @@ export function CtaButton({
   size = "md",
   className,
   showArrow = true,
+  track,
 }: Props) {
   const base =
     "shine group inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-wide transition-all duration-300 select-none whitespace-nowrap";
@@ -44,11 +52,18 @@ export function CtaButton({
 
   const isExternal = href.startsWith("http");
 
+  function handleClick() {
+    if (!track) return;
+    if (track.type === "sympla") trackSymplaClick(track.origem);
+    else trackWhatsAppClick(track.origem);
+  }
+
   return (
     <a
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
+      onClick={handleClick}
       className={cn(base, sizes[size], variants[variant], className)}
     >
       <span className="relative z-10">{children}</span>

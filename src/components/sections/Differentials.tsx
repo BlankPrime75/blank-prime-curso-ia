@@ -20,7 +20,7 @@ const items = [
   {
     icon: Users,
     title: "Turma reduzida e mista por segmento.",
-    body: "Máximo 30 empresários de áreas diferentes. Você aprende com o que o dono da farmácia descobriu, com o que a empresária do imobiliário testou, com o que o industrial automatizou. Curso homogêneo não entrega isso.",
+    body: "Turma reduzida, com empresários de áreas diferentes. Você aprende com o que o dono da farmácia descobriu, com o que a empresária do imobiliário testou, com o que o industrial automatizou. Curso homogêneo não entrega isso.",
   },
   {
     icon: Hammer,

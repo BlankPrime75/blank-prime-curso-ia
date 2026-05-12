@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 import { AnimatedSection, staggerContainer, staggerItem } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
+import { LightFx } from "@/components/LightFx";
 
 const comparisons = [
   {
@@ -34,7 +35,7 @@ export function Agitation() {
       id="agitacao"
       className="section-light relative overflow-hidden border-b border-bp-border"
     >
-      <div className="absolute inset-0 grid-bg-soft opacity-50" />
+      <LightFx />
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading
@@ -99,7 +100,7 @@ export function Agitation() {
               E o pior:{" "}
               <span className="text-bp-text-primary">isso não é mais futuro.</span>{" "}
               É agora. Os empresários da Bondmann Química fizeram isso em 4
-              encontros. Os 30 empresários da próxima turma vão fazer o mesmo.
+              encontros. Os empresários da próxima turma vão fazer o mesmo.
             </p>
             <p>
               Cada mês que você adia esse curso é um mês de vantagem que você dá

@@ -16,10 +16,3 @@ export const WHATSAPP_DUVIDAS = `https://wa.me/${WHATSAPP_DUVIDAS_PHONE}?text=${
 // Aliases mantidos pra não quebrar imports antigos — agora apontam pro Sympla.
 export const SOFIA_WHATSAPP = SYMPLA_CHECKOUT;
 export const SOFIA_WHATSAPP_DATAS = SYMPLA_CHECKOUT;
-
-// ─── Urgência: contador de vagas ───────────────────────────────────────
-// Atualizar manualmente conforme inscrições. Quando > 0, aparece como
-// "X de 30 vagas preenchidas" no Hero e na seção final, criando escassez
-// tangível. Quando 0, omite o contador (só mostra "Vagas limitadas").
-export const TURMA_TOTAL_VAGAS = 30;
-export const TURMA_VAGAS_PREENCHIDAS = 0; // ajustar conforme entrarem inscrições

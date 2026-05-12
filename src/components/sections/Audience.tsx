@@ -1,6 +1,7 @@
 import { Check, X } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
+import { LightFx } from "@/components/LightFx";
 
 const forYou = [
   "Tem uma empresa de pequeno ou médio porte e quer a IA trabalhando pelo seu negócio, não você trabalhando para entender IA",
@@ -21,9 +22,10 @@ export function Audience() {
   return (
     <AnimatedSection
       id="para-quem"
-      className="section-light relative border-b border-bp-border"
+      className="section-light relative overflow-hidden border-b border-bp-border"
     >
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <LightFx />
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/08"
           eyebrow="Para quem é"

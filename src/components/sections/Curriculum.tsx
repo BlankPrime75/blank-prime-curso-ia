@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AnimatedSection, staggerContainer, staggerItem } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
+import { LightFx } from "@/components/LightFx";
 
 const meetings = [
   {
@@ -37,7 +38,7 @@ export function Curriculum() {
       id="encontros"
       className="section-light relative overflow-hidden border-b border-bp-border"
     >
-      <div className="absolute inset-0 grid-bg-soft opacity-40" />
+      <LightFx />
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading

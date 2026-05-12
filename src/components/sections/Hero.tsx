@@ -11,11 +11,7 @@ import {
 } from "lucide-react";
 import { CtaButton } from "@/components/CtaButton";
 import { AiBackground } from "@/components/AiBackground";
-import {
-  SOFIA_WHATSAPP,
-  TURMA_TOTAL_VAGAS,
-  TURMA_VAGAS_PREENCHIDAS,
-} from "@/lib/constants";
+import { SYMPLA_CHECKOUT } from "@/lib/constants";
 
 const HERO_FACTS = [
   {
@@ -24,14 +20,7 @@ const HERO_FACTS = [
   },
   { icon: Clock, label: "18h30 às 21h30 · 12h totais" },
   { icon: MapPin, label: "CICS Canoas · Rua Ipiranga, 95 · Centro" },
-  {
-    icon: Users,
-    label:
-      TURMA_VAGAS_PREENCHIDAS > 0 &&
-      TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS
-        ? `${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS} vagas restantes · turma de ${TURMA_TOTAL_VAGAS}`
-        : `Vagas limitadas · turma de ${TURMA_TOTAL_VAGAS} empresários`,
-  },
+  { icon: Users, label: "Turma reduzida · vagas limitadas" },
 ];
 
 export function Hero() {
@@ -122,8 +111,12 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
-            <CtaButton href={SOFIA_WHATSAPP} size="lg">
-              Inscrições abertas
+            <CtaButton
+              href={SYMPLA_CHECKOUT}
+              size="lg"
+              track={{ type: "sympla", origem: "hero" }}
+            >
+              Quero garantir minha vaga
             </CtaButton>
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
               Vagas limitadas

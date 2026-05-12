@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { SYMPLA_CHECKOUT } from "@/lib/constants";
+import { trackSymplaClick } from "@/lib/track";
 
 /**
  * Botão fixo no bottom em mobile (< md). Some assim que o user
@@ -26,6 +27,7 @@ export function StickyMobileCta() {
       href={SYMPLA_CHECKOUT}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackSymplaClick("sticky-mobile")}
       aria-label="Garantir minha vaga"
       className={`fixed bottom-4 left-4 right-20 z-40 md:hidden flex items-center justify-center gap-2 h-12 rounded-full bg-bp-accent text-black text-sm font-semibold uppercase tracking-wide shadow-[0_8px_32px_-8px_rgba(31,231,79,0.6)] transition-all duration-300 ${
         show
