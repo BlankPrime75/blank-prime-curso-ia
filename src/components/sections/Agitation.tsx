@@ -32,7 +32,7 @@ export function Agitation() {
   return (
     <AnimatedSection
       id="agitacao"
-      className="relative overflow-hidden border-b border-bp-border bg-bp-bg-elevated"
+      className="section-light relative overflow-hidden border-b border-bp-border"
     >
       <div className="absolute inset-0 grid-bg-soft opacity-50" />
 

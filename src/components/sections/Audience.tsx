@@ -21,7 +21,7 @@ export function Audience() {
   return (
     <AnimatedSection
       id="para-quem"
-      className="relative border-b border-bp-border bg-bp-bg-elevated"
+      className="section-light relative border-b border-bp-border"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading

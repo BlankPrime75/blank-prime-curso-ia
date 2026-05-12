@@ -35,7 +35,7 @@ export function Curriculum() {
   return (
     <AnimatedSection
       id="encontros"
-      className="relative overflow-hidden border-b border-bp-border bg-bp-bg"
+      className="section-light relative overflow-hidden border-b border-bp-border"
     >
       <div className="absolute inset-0 grid-bg-soft opacity-40" />
 

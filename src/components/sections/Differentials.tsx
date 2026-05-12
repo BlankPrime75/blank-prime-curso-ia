@@ -43,7 +43,7 @@ export function Differentials() {
   return (
     <AnimatedSection
       id="diferenciais"
-      className="section-light relative border-b border-bp-border"
+      className="relative border-b border-bp-border bg-bp-bg-elevated"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading

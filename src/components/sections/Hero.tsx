@@ -10,6 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import { CtaButton } from "@/components/CtaButton";
+import { AiBackground } from "@/components/AiBackground";
 import {
   SOFIA_WHATSAPP,
   TURMA_TOTAL_VAGAS,
@@ -36,10 +37,12 @@ const HERO_FACTS = [
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-bp-border-neutral">
-      {/* fundo: grid sutil + halo verde radial */}
-      <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-50" />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 accent-halo blur-2xl" />
-      <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.06] blur-3xl" />
+      {/* fundo: rede neural animada + grid sutil + halos verdes pulsando */}
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-30" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 accent-halo blur-2xl ai-pulse" />
+      <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.07] blur-3xl ai-pulse [animation-delay:1.6s]" />
+      <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-8 pb-24 md:pt-10 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
         {/* COLUNA TEXTO */}

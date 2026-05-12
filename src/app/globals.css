@@ -60,26 +60,37 @@
 
 /* Seção em tom claro (branco gelo) — quebra visual entre seções escuras.
    Re-mapeia as variáveis bp-* pra versão light dentro do escopo da seção;
-   como os utilitários Tailwind usam var(--color-bp-*), tudo dentro herda. */
+   como os utilitários Tailwind usam var(--color-bp-*), tudo dentro herda.
+   Regra do cliente: NADA branco puro além do fundo gelo. Cards = gelo um
+   pouco mais frio; hover/elevated = verde translúcido pra destacar. */
 .section-light {
   --color-bp-bg: #f3f5f3;
-  --color-bp-bg-elevated: #ffffff;
-  --color-bp-bg-card: #ffffff;
+  /* "elevated" é usado em hovers e blocos destacados -> verde suave */
+  --color-bp-bg-elevated: rgba(14, 156, 57, 0.1);
+  /* cards normais -> gelo levemente mais frio (não branco) */
+  --color-bp-bg-card: #e9eeea;
   --color-bp-text-primary: #2b352f;
-  --color-bp-text-secondary: #5a655f;
-  --color-bp-text-muted: #8b958f;
+  --color-bp-text-secondary: #56615b;
+  --color-bp-text-muted: #828d87;
   --color-bp-text-bright: #14201a;
   --color-bp-accent: #0e9c39;
   --color-bp-accent-hover: #0a8a31;
   --color-bp-accent-bright: #12b342;
-  --color-bp-accent-soft: rgba(14, 156, 57, 0.1);
-  --color-bp-accent-glow: rgba(14, 156, 57, 0.2);
-  --color-bp-border: rgba(14, 156, 57, 0.18);
-  --color-bp-border-strong: rgba(14, 156, 57, 0.32);
-  --color-bp-border-neutral: rgba(20, 30, 25, 0.1);
+  --color-bp-accent-soft: rgba(14, 156, 57, 0.12);
+  --color-bp-accent-glow: rgba(14, 156, 57, 0.22);
+  --color-bp-border: rgba(14, 156, 57, 0.22);
+  --color-bp-border-strong: rgba(14, 156, 57, 0.38);
+  --color-bp-border-neutral: rgba(20, 30, 25, 0.12);
 
   background-color: var(--color-bp-bg);
   color: var(--color-bp-text-primary);
+}
+
+/* Em seção clara, qualquer bg branco explícito vira gelo frio;
+   hover de cards vira verde translúcido (destaque, não branco). */
+.section-light .bg-white,
+.section-light [class*="bg-white"] {
+  background-color: #e9eeea !important;
 }
 
 @layer utilities {
@@ -192,5 +203,27 @@
 
   .shine:hover::after {
     transform: translateX(100%);
+  }
+
+  /* Pulso lento dos halos verdes — "energia de IA" respirando.
+     Anima só opacity pra não conflitar com translate/transform do Tailwind. */
+  .ai-pulse {
+    animation: ai-pulse 6s ease-in-out infinite;
+  }
+
+  @keyframes ai-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-pulse {
+      animation: none;
+    }
   }
 }
