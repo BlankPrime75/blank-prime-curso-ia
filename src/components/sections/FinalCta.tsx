@@ -2,9 +2,10 @@ import { CtaButton } from "@/components/CtaButton";
 import { BlankPrimeLogo } from "@/components/BlankPrimeLogo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { AiBackground } from "@/components/AiBackground";
 import {
-  SOFIA_WHATSAPP,
-  SOFIA_WHATSAPP_DATAS,
+  SYMPLA_CHECKOUT,
+  WHATSAPP_DUVIDAS,
   TURMA_TOTAL_VAGAS,
   TURMA_VAGAS_PREENCHIDAS,
 } from "@/lib/constants";
@@ -15,11 +16,11 @@ const vagasInfo =
     : `${TURMA_TOTAL_VAGAS} vagas no total, turma fecha ao completar`;
 
 const info = [
-  { label: "Formato", value: "Presencial" },
+  { label: "Formato", value: "Presencial · CICS Canoas" },
+  { label: "Datas", value: "9, 16, 23 e 30 de Junho de 2026 · Terças, 18h30 às 21h30" },
   { label: "Duração", value: "4 encontros · 3h cada · 12h no total" },
   { label: "Turma", value: vagasInfo },
-  { label: "Certificado", value: "Emitido pela Blank Prime ao final do curso" },
-  { label: "Inscrições", value: "Atendimento individual com a Sofia" },
+  { label: "Inscrição", value: "Compra direta e segura pelo Sympla" },
 ];
 
 export function FinalCta() {
@@ -27,10 +28,12 @@ export function FinalCta() {
     <>
       <AnimatedSection
         id="inscrever"
-        className="relative overflow-hidden bg-bp-bg"
+        className="relative isolate overflow-hidden bg-bp-bg"
       >
-        <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-50" />
-        <div className="absolute -top-32 left-1/2 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-bp-accent/[0.05] blur-3xl" />
+        <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]" />
+        <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-25" />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[640px] -translate-x-1/2 rounded-full bg-bp-accent/[0.06] blur-3xl ai-pulse" />
+        <div className="pointer-events-none absolute -bottom-24 right-[-8%] h-[340px] w-[340px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:2.4s]" />
 
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeading
@@ -55,7 +58,7 @@ export function FinalCta() {
                   {info.map((row) => (
                     <div
                       key={row.label}
-                      className="grid grid-cols-[120px_1fr] gap-4 py-4"
+                      className="grid grid-cols-[110px_1fr] gap-4 py-4"
                     >
                       <dt className="font-mono text-xs uppercase tracking-[0.18em] text-bp-text-muted">
                         {row.label}
@@ -75,27 +78,29 @@ export function FinalCta() {
                   Como garantir sua vaga
                 </h3>
                 <p>
-                  A inscrição é feita em conversa direta com a{" "}
-                  <span className="text-bp-text-primary">Sofia</span>, nossa
-                  consultora. Ela vai entender o seu negócio, esclarecer suas
-                  dúvidas sobre formato, datas e investimento, e confirmar se
-                  ainda há vaga na próxima turma.
+                  A inscrição é{" "}
+                  <span className="text-bp-text-bright">
+                    direta e imediata pelo Sympla
+                  </span>
+                  : você escolhe seu ingresso, paga online e já está na turma.
+                  Sem formulário de espera, sem aprovação manual.
                 </p>
                 <p>
-                  Não é formulário automático. É conversa. Porque turma de 30
-                  empresários a gente monta com cuidado.
+                  Ficou alguma dúvida sobre formato, datas ou conteúdo? Chama no{" "}
+                  <span className="text-bp-text-bright">WhatsApp</span> que a
+                  gente responde, mas a vaga você garante sozinho, no seu tempo.
                 </p>
 
                 <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:flex-wrap">
-                  <CtaButton href={SOFIA_WHATSAPP} size="lg">
-                    Conversar com a Sofia agora
+                  <CtaButton href={SYMPLA_CHECKOUT} size="lg">
+                    Garantir minha vaga no Sympla
                   </CtaButton>
                   <CtaButton
-                    href={SOFIA_WHATSAPP_DATAS}
+                    href={WHATSAPP_DUVIDAS}
                     variant="secondary"
                     size="lg"
                   >
-                    Quero saber datas e investimento
+                    Tirar uma dúvida no WhatsApp
                   </CtaButton>
                 </div>
               </div>
@@ -110,7 +115,7 @@ export function FinalCta() {
                   Você tem 4 encontros de distância da decisão certa.
                 </p>
                 <p className="mt-4 font-medium text-bp-accent">
-                  Fale com a Sofia. Garanta sua vaga.
+                  Garanta sua vaga agora. As 30 cadeiras enchem rápido.
                 </p>
               </blockquote>
             </div>

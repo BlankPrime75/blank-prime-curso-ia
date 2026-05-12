@@ -1,16 +1,21 @@
-// TODO: trocar XXXXXXXXXXX pelo número real do WhatsApp da Sofia (formato 55DDDXXXXXXXX, sem espaços/hífens)
-const SOFIA_PHONE = "55XXXXXXXXXXX";
+// ─── Checkout (Sympla) ────────────────────────────────────────────────
+// A pessoa compra direto pelo Sympla, sem precisar falar com ninguém.
+export const SYMPLA_CHECKOUT =
+  "https://www.sympla.com.br/evento/ia-para-empresarios-3-edicao-curso-presencial-em-canoas-rs/3422924";
 
-const DEFAULT_MESSAGE =
-  "Oi Sofia, quero saber mais sobre o curso IA para Empresários da Blank Prime";
-
-export const SOFIA_WHATSAPP = `https://wa.me/${SOFIA_PHONE}?text=${encodeURIComponent(
-  DEFAULT_MESSAGE
+// ─── WhatsApp de dúvidas ──────────────────────────────────────────────
+// Botão flutuante: lead que precisar tira dúvida aqui.
+// Número informado: +55 51 9330-4978 (se estiver incompleto, ajustar abaixo)
+export const WHATSAPP_DUVIDAS_PHONE = "555193304978";
+const WHATSAPP_DUVIDAS_MSG =
+  "Olá! Tenho uma dúvida sobre o curso IA para Empresários (3ª edição) da Blank Prime.";
+export const WHATSAPP_DUVIDAS = `https://wa.me/${WHATSAPP_DUVIDAS_PHONE}?text=${encodeURIComponent(
+  WHATSAPP_DUVIDAS_MSG,
 )}`;
 
-export const SOFIA_WHATSAPP_DATAS = `https://wa.me/${SOFIA_PHONE}?text=${encodeURIComponent(
-  "Oi Sofia, quero saber as datas e o investimento do curso IA para Empresários"
-)}`;
+// Aliases mantidos pra não quebrar imports antigos — agora apontam pro Sympla.
+export const SOFIA_WHATSAPP = SYMPLA_CHECKOUT;
+export const SOFIA_WHATSAPP_DATAS = SYMPLA_CHECKOUT;
 
 // ─── Urgência: contador de vagas ───────────────────────────────────────
 // Atualizar manualmente conforme inscrições. Quando > 0, aparece como

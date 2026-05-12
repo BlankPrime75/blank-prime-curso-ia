@@ -28,11 +28,9 @@ export function Problem() {
           eyebrow="O Problema"
           title={
             <>
-              O problema não é a IA.
+              O problema não é a <span className="text-bp-accent">IA</span>.
               <br />
-              <span className="text-bp-text-secondary">
-                É a forma como você está usando ela.
-              </span>
+              É a forma como você está usando ela.
             </>
           }
           subtitle="Você não está parado. Está só andando em círculos."

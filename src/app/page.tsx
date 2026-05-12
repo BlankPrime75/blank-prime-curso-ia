@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Problem } from "@/components/sections/Problem";
 import { Agitation } from "@/components/sections/Agitation";
 import { Solution } from "@/components/sections/Solution";
@@ -24,6 +25,7 @@ export default function Home() {
       <Audience />
       <FinalCta />
       <StickyMobileCta />
+      <FloatingWhatsApp />
     </main>
   );
 }

@@ -23,10 +23,8 @@ export function Outcome() {
           eyebrow="Resultado"
           title={
             <>
-              O que você tem na mão{" "}
-              <span className="text-bp-text-secondary">
-                ao final dos 4 encontros.
-              </span>
+              O que você tem na mão ao final dos{" "}
+              <span className="text-bp-accent">4 encontros</span>.
             </>
           }
           subtitle="Não é certificado. É implementação."

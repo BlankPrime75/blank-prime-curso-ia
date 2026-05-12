@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
+import { AiBackground } from "@/components/AiBackground";
 
 const deliverables = [
   "Um perfil de IA configurado especificamente para o seu negócio",
@@ -25,18 +26,18 @@ export function Solution() {
   return (
     <AnimatedSection
       id="solucao"
-      className="relative border-b border-bp-border bg-bp-bg"
+      className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg"
     >
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_70%_30%,black_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute -top-24 right-[-6%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.06] blur-3xl ai-pulse" />
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/03"
           eyebrow="A Solução"
           title={
             <>
-              IA para Empresários:{" "}
-              <span className="text-bp-text-secondary">
-                o método presencial que transforma curiosidade em resultado.
-              </span>
+              <span className="text-bp-accent">IA</span> para Empresários:{" "}
+              o método presencial que transforma curiosidade em resultado.
             </>
           }
           subtitle="4 encontros. 12 horas. Você sai com IA implementada, não com slides."

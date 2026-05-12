@@ -29,8 +29,8 @@ export function Audience() {
           eyebrow="Para quem é"
           title={
             <>
-              Esse curso é para você.{" "}
-              <span className="text-bp-text-secondary">Ou não.</span>
+              Esse curso é <span className="text-bp-accent">para você</span>.{" "}
+              Ou não.
             </>
           }
           subtitle="Vamos ser diretos para você não perder tempo nem dinheiro."
