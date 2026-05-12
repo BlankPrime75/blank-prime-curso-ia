@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -157,59 +158,50 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* COLUNA VISUAL — card sintético com paleta do flyer */}
+        {/* COLUNA VISUAL — foto do instrutor (4:5) com overlays do flyer */}
         <motion.aside
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="relative hidden lg:block"
         >
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/20 bg-bp-bg-card">
-            <div className="absolute inset-0 bg-gradient-to-br from-bp-accent/[0.18] via-transparent to-transparent" />
-            <div className="absolute -right-20 -top-20 size-[400px] rounded-full bg-bp-accent/[0.18] blur-3xl" />
-            <div className="absolute -bottom-32 -left-20 size-[400px] rounded-full bg-bp-accent/[0.08] blur-3xl" />
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/25">
+            <Image
+              src="/instrutor.png"
+              alt="Instrutor do curso IA para Empresários"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+              className="object-cover"
+            />
 
-            <div className="absolute inset-0 circuit-dots opacity-40" />
+            {/* leve vinheta pra ajudar a legibilidade dos overlays */}
+            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
 
-            {/* Faixa superior */}
-            <div className="absolute left-0 right-0 top-0 flex items-center justify-between border-b border-bp-accent/20 bg-bp-bg/40 px-6 py-4 backdrop-blur-sm">
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-accent">
+            {/* Faixa superior: badges */}
+            <div className="absolute left-0 right-0 top-0 flex items-center justify-between px-5 py-4">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-accent text-glow-green">
                 3ª edição
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-text-secondary">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/80">
                 Turma 2026
               </span>
             </div>
 
-            {/* Tipografia central */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-              <span className="font-display text-7xl uppercase leading-none text-bp-accent text-glow-green">
-                IA
-              </span>
-              <span className="font-serif-italic mt-2 text-3xl text-bp-text-bright">
-                para
-              </span>
-              <span className="mt-2 block font-display text-4xl uppercase leading-none text-bp-text-bright">
-                Empresários
-              </span>
-              <span className="mt-6 max-w-[14rem] text-xs leading-relaxed text-bp-text-secondary">
-                Da curiosidade à implementação em{" "}
-                <span className="text-bp-accent">4 encontros</span>
-              </span>
-            </div>
-
             {/* Faixa PRESENCIAL */}
-            <div className="absolute bottom-0 left-0 right-0 border-t border-bp-accent/20 bg-bp-accent px-6 py-3 text-center">
+            <div className="absolute bottom-0 left-0 right-0 bg-bp-accent px-6 py-3 text-center">
               <span className="font-display text-lg uppercase tracking-[0.32em] text-black">
-                Presencial
+                Presencial · Em Canoas
               </span>
             </div>
 
             {/* Cantos decorativos */}
-            <span className="absolute left-3 top-16 block h-12 w-12 border-l border-t border-bp-accent/40" />
-            <span className="absolute right-3 bottom-16 block h-12 w-12 border-b border-r border-bp-accent/40" />
+            <span className="absolute left-3 top-12 block h-10 w-10 border-l border-t border-bp-accent/50" />
+            <span className="absolute right-3 bottom-16 block h-10 w-10 border-b border-r border-bp-accent/50" />
           </div>
 
+          {/* Glow externo */}
           <div className="pointer-events-none absolute -inset-x-8 -bottom-12 h-32 bg-bp-accent/15 blur-3xl" />
         </motion.aside>
       </div>
