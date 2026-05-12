@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://blankprime.com"),
   title: "IA para Empresários | Blank Prime",
   description:
-    "4 encontros presenciais. Você sai com IA funcionando no seu negócio, não com mais um certificado na gaveta. Turma reduzida e limitada. Método já aplicado na Bondmann Química.",
+    "4 encontros presenciais. Você sai com IA funcionando no seu negócio, não com mais um certificado na gaveta. Turma reduzida e limitada.",
   keywords: [
     "IA para empresários",
     "curso de inteligência artificial",

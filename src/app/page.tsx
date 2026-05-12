@@ -8,7 +8,6 @@ import { Solution } from "@/components/sections/Solution";
 import { Differentials } from "@/components/sections/Differentials";
 import { Curriculum } from "@/components/sections/Curriculum";
 import { Outcome } from "@/components/sections/Outcome";
-import { SocialProof } from "@/components/sections/SocialProof";
 import { Audience } from "@/components/sections/Audience";
 import { FinalCta } from "@/components/sections/FinalCta";
 
@@ -34,7 +33,6 @@ export default function Home() {
         subtitulo="As vagas são limitadas e a turma fecha ao completar. Garanta a sua pelo Sympla."
         cta="Inscrever agora"
       />
-      <SocialProof />
       <Audience />
       <FinalCta />
       <StickyMobileCta />

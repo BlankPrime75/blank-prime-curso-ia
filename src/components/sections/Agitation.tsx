@@ -99,8 +99,9 @@ export function Agitation() {
             <p>
               E o pior:{" "}
               <span className="text-bp-text-primary">isso não é mais futuro.</span>{" "}
-              É agora. Os empresários da Bondmann Química fizeram isso em 4
-              encontros. Os empresários da próxima turma vão fazer o mesmo.
+              É agora. Em 4 encontros, os empresários da próxima turma saem com
+              IA funcionando de verdade no negócio, enquanto a maioria ainda
+              está &ldquo;experimentando&rdquo;.
             </p>
             <p>
               Cada mês que você adia esse curso é um mês de vantagem que você dá

@@ -34,8 +34,8 @@ const items = [
   },
   {
     icon: Building2,
-    title: "Metodologia testada em empresa real.",
-    body: "O mesmo método já foi aplicado na Bondmann Química, com 20 profissionais de áreas distintas. Saíram com agentes funcionando e projetos apresentados para a diretoria.",
+    title: "Entregáveis concretos, não slides.",
+    body: "Cada encontro entrega algo que você usa na semana seguinte: um perfil de IA configurado, uma biblioteca de prompts, um agente funcionando e um projeto de automação rodando. Você sai com material pronto pra apresentar pra sua equipe.",
   },
 ];
 
