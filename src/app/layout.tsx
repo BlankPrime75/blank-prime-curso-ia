@@ -60,6 +60,12 @@ export const metadata: Metadata = {
       "4 encontros presenciais. Você sai com IA funcionando no seu negócio.",
   },
   robots: { index: true, follow: true },
+  verification: {
+    other: {
+      // Verificação de domínio no Gerenciador de Negócios do Facebook
+      "facebook-domain-verification": "sfoh2vjmsonu77gki4kt79eooxbfx5",
+    },
+  },
 };
 
 export default function RootLayout({
