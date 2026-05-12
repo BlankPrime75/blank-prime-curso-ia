@@ -63,15 +63,19 @@ export function Differentials() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-6"
         >
           {items.map((item, i) => {
             const Icon = item.icon;
+            // No desktop (6 cols), cada card ocupa 2 colunas. O 4º card
+            // começa na coluna 2 -> os 2 últimos ficam centralizados.
+            const lgPlacement =
+              i === items.length - 2 ? "lg:col-start-2" : "";
             return (
               <motion.div
                 key={i}
                 variants={staggerItem}
-                className="group relative flex flex-col gap-5 rounded-2xl border border-bp-border bg-bp-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bp-accent/30 hover:bg-bp-bg-card"
+                className={`group relative flex flex-col gap-5 rounded-2xl border border-bp-border bg-bp-bg p-7 transition-all duration-300 hover:-translate-y-1 hover:border-bp-accent/30 hover:bg-bp-bg-card lg:col-span-2 ${lgPlacement}`}
               >
                 <div className="flex size-11 items-center justify-center rounded-xl border border-bp-border-strong bg-bp-bg-elevated transition-colors group-hover:border-bp-accent/40 group-hover:bg-bp-accent-soft">
                   <Icon className="size-5 text-bp-text-secondary transition-colors group-hover:text-bp-accent" strokeWidth={1.6} />
