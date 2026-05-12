@@ -9,10 +9,10 @@ const consequences = [
     text: "Continua perdendo cliente porque **o tempo de resposta é lento demais**",
   },
   {
-    text: "Continua **sem previsibilidade** — em meses bons fatura bem, em meses ruins um cliente cancela e tudo balança",
+    text: "Continua **sem previsibilidade**, em meses bons fatura bem, em meses ruins um cliente cancela e tudo balança",
   },
   {
-    text: "Continua dependendo de você para **tudo** — porque a equipe não tem método",
+    text: "Continua dependendo de você para **tudo**, porque a equipe não tem método",
   },
 ];
 
@@ -45,11 +45,11 @@ export function Problem() {
             </p>
             <p>
               Você usa ChatGPT para responder um e-mail difícil. Funciona. No
-              dia seguinte, esquece de usar para a proposta comercial — e gasta
+              dia seguinte, esquece de usar para a proposta comercial, e gasta
               2 horas escrevendo no braço. Sua equipe usa{" "}
               <span className="text-bp-text-primary">"quando lembra"</span>. Um
               vendedor ama, outro nem abre. O time de marketing pediu para a
-              agência fazer o post — que poderia estar pronto em 10 minutos.
+              agência fazer o post, que poderia estar pronto em 10 minutos.
             </p>
             <p>
               No final do mês, você olha o faturamento e percebe:

@@ -39,7 +39,7 @@ export function Solution() {
               </span>
             </>
           }
-          subtitle="4 encontros. 12 horas. Você sai com IA implementada — não com slides."
+          subtitle="4 encontros. 12 horas. Você sai com IA implementada, não com slides."
         />
 
         <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
@@ -47,7 +47,7 @@ export function Solution() {
             <p>
               Esse curso foi desenhado para quem{" "}
               <span className="text-bp-text-primary">tem empresa para tocar</span>{" "}
-              — não para quem tem tempo de sobra para teoria.
+             , não para quem tem tempo de sobra para teoria.
             </p>
             <p>
               A cada encontro você sai com algo funcionando que pode usar no seu

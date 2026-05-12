@@ -15,7 +15,7 @@ const items = [
   {
     icon: Briefcase,
     title: "Para empresários, não para técnicos.",
-    body: "Linguagem de negócio. Exemplos de gestão, vendas, marketing e operação. Zero código. Zero configuração complexa. Se a sua dor é vender mais, a aula vai falar de venda — não de algoritmo.",
+    body: "Linguagem de negócio. Exemplos de gestão, vendas, marketing e operação. Zero código. Zero configuração complexa. Se a sua dor é vender mais, a aula vai falar de venda, não de algoritmo.",
   },
   {
     icon: Users,
@@ -30,7 +30,7 @@ const items = [
   {
     icon: ShieldCheck,
     title: "Sem promessa mirabolante.",
-    body: "Não vai te transformar em milionário. Vai te dar método para usar uma ferramenta que já está aí — e que seu concorrente provavelmente está usando errado também. Quem aplicar, sai na frente. É simples assim.",
+    body: "Não vai te transformar em milionário. Vai te dar método para usar uma ferramenta que já está aí, e que seu concorrente provavelmente está usando errado também. Quem aplicar, sai na frente. É simples assim.",
   },
   {
     icon: Building2,
@@ -43,7 +43,7 @@ export function Differentials() {
   return (
     <AnimatedSection
       id="diferenciais"
-      className="relative border-b border-bp-border bg-bp-bg-elevated"
+      className="section-light relative border-b border-bp-border"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading

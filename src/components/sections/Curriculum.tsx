@@ -14,13 +14,13 @@ const meetings = [
   {
     n: "02",
     title: "Prompts, Contexto e Matéria-Prima",
-    body: "Como estruturar pedidos para a IA e obter resultados que você usa de verdade — não respostas genéricas. Criação de propostas comerciais, análise de dados do seu negócio e produção de conteúdo com IA.",
+    body: "Como estruturar pedidos para a IA e obter resultados que você usa de verdade, não respostas genéricas. Criação de propostas comerciais, análise de dados do seu negócio e produção de conteúdo com IA.",
     output: "Biblioteca de prompts profissionais.",
   },
   {
     n: "03",
     title: "IA Criativa e Agentes Inteligentes",
-    body: "Apresentações automáticas, geração de imagens, vídeos e construção de um assistente inteligente para a sua área de maior dor — configurado ao vivo durante a aula.",
+    body: "Apresentações automáticas, geração de imagens, vídeos e construção de um assistente inteligente para a sua área de maior dor, configurado ao vivo durante a aula.",
     output: "Um agente funcionando.",
   },
   {

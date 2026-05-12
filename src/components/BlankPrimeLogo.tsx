@@ -19,7 +19,7 @@ export function BlankPrimeLogo({ className, size = "md", priority = false }: Pro
   return (
     <Image
       src={logoSrc}
-      alt="Blank Prime — Serviços Empresariais"
+      alt="Blank Prime, Serviços Empresariais"
       width={w}
       height={h}
       priority={priority}

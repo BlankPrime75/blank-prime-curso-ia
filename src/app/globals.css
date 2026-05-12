@@ -58,6 +58,30 @@
   }
 }
 
+/* Seção em tom claro (branco gelo) — quebra visual entre seções escuras.
+   Re-mapeia as variáveis bp-* pra versão light dentro do escopo da seção;
+   como os utilitários Tailwind usam var(--color-bp-*), tudo dentro herda. */
+.section-light {
+  --color-bp-bg: #f3f5f3;
+  --color-bp-bg-elevated: #ffffff;
+  --color-bp-bg-card: #ffffff;
+  --color-bp-text-primary: #2b352f;
+  --color-bp-text-secondary: #5a655f;
+  --color-bp-text-muted: #8b958f;
+  --color-bp-text-bright: #14201a;
+  --color-bp-accent: #0e9c39;
+  --color-bp-accent-hover: #0a8a31;
+  --color-bp-accent-bright: #12b342;
+  --color-bp-accent-soft: rgba(14, 156, 57, 0.1);
+  --color-bp-accent-glow: rgba(14, 156, 57, 0.2);
+  --color-bp-border: rgba(14, 156, 57, 0.18);
+  --color-bp-border-strong: rgba(14, 156, 57, 0.32);
+  --color-bp-border-neutral: rgba(20, 30, 25, 0.1);
+
+  background-color: var(--color-bp-bg);
+  color: var(--color-bp-text-primary);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -137,7 +161,7 @@
     );
   }
 
-  /* Padrão de "circuito" sutil — pontos verdes */
+  /* Padrão de "circuito" sutil, pontos verdes */
   .circuit-dots {
     background-image: radial-gradient(
       rgba(31, 231, 79, 0.18) 1px,

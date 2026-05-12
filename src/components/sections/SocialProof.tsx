@@ -8,7 +8,7 @@ const built = [
   "Guia de prompts profissional organizado por área",
   "Assistente de treinamento comercial funcionando",
   "5 projetos de automação apresentados para a diretoria",
-  "Equipe saiu com ferramentas implementadas — não com slides",
+  "Equipe saiu com ferramentas implementadas, não com slides",
 ];
 
 const stats = [
@@ -22,7 +22,7 @@ export function SocialProof() {
   return (
     <AnimatedSection
       id="prova-social"
-      className="relative border-b border-bp-border bg-bp-bg"
+      className="section-light relative border-b border-bp-border"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeading
@@ -34,18 +34,18 @@ export function SocialProof() {
               <span className="text-bp-accent">Com resultado.</span>
             </>
           }
-          subtitle="Caso Bondmann Química — Canoas/RS e Indaiatuba/SP"
+          subtitle="Caso Bondmann Química, Canoas/RS e Indaiatuba/SP"
         />
 
         <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="space-y-6 text-base text-bp-text-secondary md:col-span-7 md:text-lg">
             <p>
               A Bondmann Química trouxe 20 profissionais de áreas completamente
-              diferentes —{" "}
+              diferentes,{" "}
               <span className="text-bp-text-primary">
                 Controladoria, Qualidade, Marketing e RH
               </span>{" "}
-              — para passar pelo mesmo método que agora chega em formato de
+             , para passar pelo mesmo método que agora chega em formato de
               turma aberta.
             </p>
 
@@ -73,7 +73,7 @@ export function SocialProof() {
             </p>
             <p>
               E o que funcionou na Bondmann é exatamente o que vai funcionar
-              para você — com a vantagem extra de estar numa turma com
+              para você, com a vantagem extra de estar numa turma com
               empresários de outros segmentos, trocando o que cada um descobriu
               no próprio mercado.
             </p>

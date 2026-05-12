@@ -11,8 +11,8 @@ import {
 
 const vagasInfo =
   TURMA_VAGAS_PREENCHIDAS > 0 && TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS
-    ? `${TURMA_VAGAS_PREENCHIDAS} de ${TURMA_TOTAL_VAGAS} vagas preenchidas — restam ${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS}`
-    : `${TURMA_TOTAL_VAGAS} vagas no total — turma fecha ao completar`;
+    ? `${TURMA_VAGAS_PREENCHIDAS} de ${TURMA_TOTAL_VAGAS} vagas preenchidas, restam ${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS}`
+    : `${TURMA_TOTAL_VAGAS} vagas no total, turma fecha ao completar`;
 
 const info = [
   { label: "Formato", value: "Presencial" },

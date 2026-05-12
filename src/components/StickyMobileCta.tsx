@@ -6,7 +6,7 @@ import { SOFIA_WHATSAPP } from "@/lib/constants";
 
 /**
  * Botão fixo no bottom em mobile (< md). Some assim que o user
- * passa do hero (~80vh) — pra não obstruir conteúdo no início,
+ * passa do hero (~80vh), pra não obstruir conteúdo no início,
  * só apoiar quem está rolando e considerando.
  */
 export function StickyMobileCta() {

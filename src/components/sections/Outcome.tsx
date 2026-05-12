@@ -3,10 +3,10 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const outcomes = [
-  "IA funcionando como ferramenta de trabalho real — não como curiosidade ocasional",
+  "IA funcionando como ferramenta de trabalho real, não como curiosidade ocasional",
   "Processos do seu negócio mapeados com oportunidades concretas de automação",
-  "Assistente inteligente configurado para a sua área de maior dor (atendimento, vendas, gestão, comunicação — você escolhe)",
-  "Material de comunicação e vendas produzido com IA — pronto para usar",
+  "Assistente inteligente configurado para a sua área de maior dor (atendimento, vendas, gestão, comunicação, você escolhe)",
+  "Material de comunicação e vendas produzido com IA, pronto para usar",
   "Método claro para sua equipe parar de usar IA cada um do seu jeito",
   "Vantagem de 2 anos sobre quem ainda vai começar",
 ];
@@ -83,7 +83,7 @@ export function Outcome() {
                 <p className="mt-4 text-base text-bp-text-primary md:text-lg">
                   Equivale a contratar um colaborador júnior por{" "}
                   <span className="text-bp-text-bright font-medium">um único mês</span>
-                  {" "}— mas o método fica com você e sua equipe pra sempre.
+                  {" "}mas o método fica com você e sua equipe pra sempre.
                 </p>
                 <p className="mt-3 text-sm text-bp-text-secondary">
                   Condições especiais pra empresários do RS. Valor exato e formas de pagamento direto com a Sofia.

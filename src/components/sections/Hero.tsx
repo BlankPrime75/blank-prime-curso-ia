@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
   CalendarDays,
   Clock,
   MapPin,
@@ -11,7 +10,6 @@ import {
   Users,
 } from "lucide-react";
 import { CtaButton } from "@/components/CtaButton";
-import { BlankPrimeLogo } from "@/components/BlankPrimeLogo";
 import {
   SOFIA_WHATSAPP,
   TURMA_TOTAL_VAGAS,
@@ -43,21 +41,7 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 accent-halo blur-2xl" />
       <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.06] blur-3xl" />
 
-      {/* Header da página */}
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-7 md:pt-9">
-        <BlankPrimeLogo size="md" priority />
-        <a
-          href={SOFIA_WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden text-sm text-bp-text-secondary transition-colors hover:text-bp-accent md:inline-flex md:items-center md:gap-2"
-        >
-          Falar com a Sofia
-          <ArrowRight className="size-3.5" />
-        </a>
-      </header>
-
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-16 pb-24 md:pt-20 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-8 pb-24 md:pt-10 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
         {/* COLUNA TEXTO */}
         <div>
           {/* Badges do topo (espelha o card) */}
@@ -77,7 +61,7 @@ export function Hero() {
             <span>Em Canoas</span>
           </motion.div>
 
-          {/* HEADLINE — IA gigante + para italic + Empresários */}
+          {/* HEADLINE, IA gigante + para italic + Empresários */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -158,7 +142,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* COLUNA VISUAL — foto do instrutor (4:5) com overlays do flyer */}
+        {/* COLUNA VISUAL, foto do instrutor (4:5) com overlays do flyer */}
         <motion.aside
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}

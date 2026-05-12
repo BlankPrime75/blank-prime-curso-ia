@@ -3,7 +3,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const forYou = [
-  "Tem uma empresa de pequeno ou médio porte e quer a IA trabalhando pelo seu negócio — não você trabalhando para entender IA",
+  "Tem uma empresa de pequeno ou médio porte e quer a IA trabalhando pelo seu negócio, não você trabalhando para entender IA",
   "Está cansado de apagar incêndio e quer tempo para o estratégico",
   "Tem equipe que poderia ser mais produtiva com método, mas hoje cada um faz do seu jeito",
   "Quer previsibilidade de resultado e parar de depender de mês bom e mês ruim",
@@ -14,7 +14,7 @@ const notForYou = [
   "Quer aprender a programar ou desenvolver sistemas do zero",
   "Busca curso teórico, com muito material e pouca aplicação",
   "Não está disposto a abrir o computador durante a aula e implementar",
-  'Espera "mágica" — não método',
+  'Espera "mágica", não método',
 ];
 
 export function Audience() {

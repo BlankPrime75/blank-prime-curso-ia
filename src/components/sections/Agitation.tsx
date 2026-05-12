@@ -106,7 +106,7 @@ export function Agitation() {
               para quem já entendeu.
             </p>
             <p>
-              E quando a IA virar básico — daqui 12, 18, no máximo 24 meses —
+              E quando a IA virar básico, daqui 12, 18, no máximo 24 meses,
               quem aprendeu agora vai estar 2 anos à frente. Quem deixou para
               depois vai estar correndo atrás, no escuro, gastando o dobro.
             </p>
