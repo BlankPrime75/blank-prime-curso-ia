@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Anton, Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import { MetaPixel } from "@/components/meta-pixel";
 import "./globals.css";
 
@@ -11,6 +11,21 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const anton = Anton({
+  weight: "400",
+  variable: "--font-anton",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  weight: ["400", "500", "600"],
+  style: ["italic", "normal"],
+  variable: "--font-cormorant",
   subsets: ["latin"],
   display: "swap",
 });
@@ -51,10 +66,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-bp-bg text-bp-text-primary antialiased`}
-      >
+    <html
+      lang="pt-BR"
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${anton.variable} ${cormorant.variable}`}
+    >
+      <body className="bg-bp-bg text-bp-text-primary antialiased">
         <MetaPixel />
         {children}
       </body>

@@ -2,27 +2,41 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-bp-bg: #0a0a0f;
-  --color-bp-bg-elevated: #0d0d14;
-  --color-bp-bg-card: #101019;
-  --color-bp-text-primary: #8c95a8;
-  --color-bp-text-secondary: #5a6478;
-  --color-bp-text-muted: #3a4458;
-  --color-bp-text-bright: #b4bccc;
-  --color-bp-accent: #c9a961;
-  --color-bp-accent-hover: #cfae63;
-  --color-bp-accent-soft: rgba(201, 169, 97, 0.12);
-  --color-bp-border: rgba(140, 149, 168, 0.12);
-  --color-bp-border-strong: rgba(140, 149, 168, 0.22);
-  --color-bp-danger: #6b5560;
+  /* Backgrounds: preto profundo com leve toque esverdeado nos cards */
+  --color-bp-bg: #050707;
+  --color-bp-bg-elevated: #0a0d0c;
+  --color-bp-bg-card: #0c1110;
 
+  /* Texto */
+  --color-bp-text-primary: #c6cdc8;
+  --color-bp-text-secondary: #7a857f;
+  --color-bp-text-muted: #4a544f;
+  --color-bp-text-bright: #ffffff;
+
+  /* Verde neon (identidade visual do card) */
+  --color-bp-accent: #1fe74f;
+  --color-bp-accent-hover: #2ef85f;
+  --color-bp-accent-bright: #7cffa0;
+  --color-bp-accent-soft: rgba(31, 231, 79, 0.12);
+  --color-bp-accent-glow: rgba(31, 231, 79, 0.35);
+
+  /* Bordas */
+  --color-bp-border: rgba(31, 231, 79, 0.14);
+  --color-bp-border-strong: rgba(31, 231, 79, 0.3);
+  --color-bp-border-neutral: rgba(180, 200, 190, 0.08);
+
+  --color-bp-danger: #ff5577;
+
+  /* Fontes */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-anton);
+  --font-serif: var(--font-cormorant);
 }
 
 @layer base {
   * {
-    border-color: var(--color-bp-border);
+    border-color: var(--color-bp-border-neutral);
   }
 
   html {
@@ -39,8 +53,8 @@
   }
 
   ::selection {
-    background-color: rgba(201, 169, 97, 0.25);
-    color: #e8d9b0;
+    background-color: rgba(31, 231, 79, 0.3);
+    color: #ffffff;
   }
 }
 
@@ -53,17 +67,30 @@
     text-wrap: pretty;
   }
 
+  .font-display {
+    font-family: var(--font-display), Impact, "Arial Narrow Bold", sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-serif-italic {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  /* Grid sutil esverdeado no fundo */
   .grid-bg {
     background-image:
-      linear-gradient(to right, rgba(140, 149, 168, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(140, 149, 168, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(31, 231, 79, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 231, 79, 0.05) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
   .grid-bg-soft {
     background-image:
-      linear-gradient(to right, rgba(140, 149, 168, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(140, 149, 168, 0.03) 1px, transparent 1px);
+      linear-gradient(to right, rgba(31, 231, 79, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31, 231, 79, 0.03) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -80,10 +107,43 @@
     );
   }
 
+  /* Glow verde estilo neon (substitui glow-gold antigo) */
+  .glow-green {
+    box-shadow:
+      0 0 0 1px rgba(31, 231, 79, 0.3),
+      0 0 32px -4px rgba(31, 231, 79, 0.35);
+  }
+
+  /* Mantém alias antigo pra não quebrar callsites que ainda usam glow-gold */
   .glow-gold {
     box-shadow:
-      0 0 0 1px rgba(201, 169, 97, 0.18),
-      0 8px 32px -8px rgba(201, 169, 97, 0.25);
+      0 0 0 1px rgba(31, 231, 79, 0.3),
+      0 0 32px -4px rgba(31, 231, 79, 0.35);
+  }
+
+  .text-glow-green {
+    text-shadow:
+      0 0 24px rgba(31, 231, 79, 0.45),
+      0 0 8px rgba(31, 231, 79, 0.3);
+  }
+
+  /* Halo radial verde no fundo (decoração) */
+  .accent-halo {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(31, 231, 79, 0.18) 0%,
+      rgba(31, 231, 79, 0.05) 35%,
+      transparent 70%
+    );
+  }
+
+  /* Padrão de "circuito" sutil — pontos verdes */
+  .circuit-dots {
+    background-image: radial-gradient(
+      rgba(31, 231, 79, 0.18) 1px,
+      transparent 1px
+    );
+    background-size: 28px 28px;
   }
 
   .shine {
@@ -98,7 +158,7 @@
     background: linear-gradient(
       105deg,
       transparent 40%,
-      rgba(255, 255, 255, 0.18) 50%,
+      rgba(255, 255, 255, 0.22) 50%,
       transparent 60%
     );
     transform: translateX(-100%);

@@ -20,7 +20,7 @@ export function CtaButton({
   showArrow = true,
 }: Props) {
   const base =
-    "shine group inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-300 select-none whitespace-nowrap";
+    "shine group inline-flex items-center justify-center gap-2 rounded-full font-semibold uppercase tracking-wide transition-all duration-300 select-none whitespace-nowrap";
 
   const sizes = {
     md: "h-11 px-5 text-sm",
@@ -29,17 +29,17 @@ export function CtaButton({
 
   const variants = {
     primary: cn(
-      "bg-bp-accent text-bp-bg",
+      "bg-bp-accent text-black",
       "hover:bg-bp-accent-hover hover:-translate-y-0.5",
-      "shadow-[0_8px_32px_-8px_rgba(201,169,97,0.4)]",
-      "hover:shadow-[0_12px_40px_-8px_rgba(201,169,97,0.55)]"
+      "shadow-[0_8px_32px_-8px_rgba(31,231,79,0.55)]",
+      "hover:shadow-[0_12px_40px_-8px_rgba(31,231,79,0.75)]",
     ),
     secondary: cn(
       "border border-bp-border-strong bg-bp-bg-elevated text-bp-text-primary",
-      "hover:border-bp-accent/40 hover:text-bp-accent hover:-translate-y-0.5"
+      "hover:border-bp-accent hover:text-bp-accent hover:-translate-y-0.5",
     ),
     ghost:
-      "text-bp-text-primary hover:text-bp-accent underline-offset-4 hover:underline",
+      "text-bp-text-primary hover:text-bp-accent underline-offset-4 hover:underline normal-case tracking-normal font-medium",
   } as const;
 
   const isExternal = href.startsWith("http");

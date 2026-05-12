@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarDays,
+  Clock,
+  MapPin,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { CtaButton } from "@/components/CtaButton";
 import { BlankPrimeLogo } from "@/components/BlankPrimeLogo";
 import {
@@ -10,21 +17,32 @@ import {
   TURMA_VAGAS_PREENCHIDAS,
 } from "@/lib/constants";
 
-const headline = [
-  ["Sua", "concorrência"],
-  ["já", "está", "usando", "IA."],
-  ["E", "você", "ainda", "está"],
-  ['"experimentando".'],
+const HERO_FACTS = [
+  {
+    icon: CalendarDays,
+    label: "9, 16, 23 e 30 de Junho de 2026 · Terças-feiras",
+  },
+  { icon: Clock, label: "18h30 às 21h30 · 12h totais" },
+  { icon: MapPin, label: "CICS Canoas · Rua Ipiranga, 95 · Centro" },
+  {
+    icon: Users,
+    label:
+      TURMA_VAGAS_PREENCHIDAS > 0 &&
+      TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS
+        ? `${TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS} vagas restantes · turma de ${TURMA_TOTAL_VAGAS}`
+        : `Vagas limitadas · turma de ${TURMA_TOTAL_VAGAS} empresários`,
+  },
 ];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-bp-border">
-      <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-60" />
-      <div className="absolute left-1/2 top-0 h-px w-[80%] -translate-x-1/2 bg-gradient-to-r from-transparent via-bp-accent/40 to-transparent" />
+    <section className="relative isolate overflow-hidden border-b border-bp-border-neutral">
+      {/* fundo: grid sutil + halo verde radial */}
+      <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-50" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 accent-halo blur-2xl" />
+      <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.06] blur-3xl" />
 
-      <div className="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-bp-accent/[0.04] blur-3xl" />
-
+      {/* Header da página */}
       <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 pt-7 md:pt-9">
         <BlankPrimeLogo size="md" priority />
         <a
@@ -38,120 +56,162 @@ export function Hero() {
         </a>
       </header>
 
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start px-6 pt-20 pb-28 md:pt-28 md:pb-36">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-bp-border-strong bg-bp-bg-elevated px-3.5 py-1.5"
-        >
-          <Sparkles className="size-3.5 text-bp-accent" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-bp-text-secondary">
-            Curso Presencial · Próxima Turma
-          </span>
-        </motion.div>
-
-        <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-bp-text-bright sm:text-5xl md:text-6xl lg:text-7xl">
-          {headline.map((line, lineIdx) => (
-            <span key={lineIdx} className="block">
-              {line.map((word, wIdx) => {
-                const flatIdx =
-                  headline.slice(0, lineIdx).flat().length + wIdx;
-                const isHighlight = word === "IA.";
-                return (
-                  <motion.span
-                    key={`${lineIdx}-${wIdx}`}
-                    initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    transition={{
-                      duration: 0.7,
-                      delay: 0.2 + flatIdx * 0.05,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="mr-[0.25em] inline-block"
-                  >
-                    <span className={isHighlight ? "text-bp-accent" : ""}>
-                      {word}
-                    </span>
-                  </motion.span>
-                );
-              })}
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-16 pb-24 md:pt-20 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        {/* COLUNA TEXTO */}
+        <div>
+          {/* Badges do topo (espelha o card) */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-secondary"
+          >
+            <span className="inline-flex items-center gap-1.5 text-bp-accent">
+              <Sparkles className="size-3" />
+              3ª edição
             </span>
-          ))}
-        </h1>
+            <span className="size-1 rounded-full bg-bp-text-muted/60" />
+            <span>Turma 2026</span>
+            <span className="size-1 rounded-full bg-bp-text-muted/60" />
+            <span>Em Canoas</span>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 max-w-2xl text-pretty text-lg text-bp-text-secondary md:text-xl"
-        >
-          Em 4 encontros presenciais, você sai com IA funcionando de verdade no
-          seu negócio — não com mais um certificado na gaveta. Turma de no
-          máximo 30 empresários.
-        </motion.p>
+          {/* HEADLINE — IA gigante + para italic + Empresários */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 leading-[0.85]"
+          >
+            <span className="block">
+              <span className="font-display text-[clamp(5.5rem,16vw,11rem)] uppercase text-bp-accent text-glow-green">
+                IA
+              </span>
+              <span className="font-serif-italic ml-3 align-baseline text-[clamp(2.5rem,7vw,5rem)] text-bp-text-bright">
+                para
+              </span>
+            </span>
+            <span className="mt-2 block font-display text-[clamp(2.5rem,8vw,6rem)] uppercase tracking-tight text-bp-text-bright">
+              Empresários
+            </span>
+          </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-10 max-w-2xl space-y-5 text-base text-bp-text-secondary md:text-lg"
-        >
-          <p>
-            Você abre o ChatGPT, faz uma pergunta, copia uma resposta e fecha.
-            Sua equipe faz o mesmo — cada um do seu jeito. No final do mês,
-            ninguém sabe explicar onde a IA realmente economizou tempo, gerou
-            venda ou trouxe vantagem.
-          </p>
-          <p className="text-bp-text-bright">Esse curso resolve isso.</p>
-          <p>
-            12 horas de prática direta com Sofia e o método já aplicado em
-            empresas como a Bondmann Química. Você sai com prompts
-            profissionais, um agente inteligente configurado para a sua dor e
-            um projeto de automação rodando.
-          </p>
-        </motion.div>
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 max-w-xl text-pretty text-lg text-bp-text-primary md:text-xl"
+          >
+            Sua concorrência já está usando IA.{" "}
+            <span className="text-bp-text-bright">E você?</span>{" "}
+            Da curiosidade à implementação em 4 encontros presenciais.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
-        >
-          <CtaButton href={SOFIA_WHATSAPP} size="lg">
-            Falar com a Sofia e garantir minha vaga
-          </CtaButton>
-          <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.2em] text-bp-text-muted">
-            {TURMA_VAGAS_PREENCHIDAS > 0 && TURMA_VAGAS_PREENCHIDAS < TURMA_TOTAL_VAGAS ? (
-              <>
-                <span className="text-bp-accent">
-                  {TURMA_VAGAS_PREENCHIDAS} de {TURMA_TOTAL_VAGAS} vagas preenchidas
+          {/* Bullets com ícones verdes (mesmo padrão do card) */}
+          <motion.ul
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 space-y-3.5"
+          >
+            {HERO_FACTS.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-start gap-3.5">
+                <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-bp-accent/30 bg-bp-accent-soft text-bp-accent">
+                  <Icon className="size-4" />
                 </span>
-                <span>Restam {TURMA_TOTAL_VAGAS - TURMA_VAGAS_PREENCHIDAS} · turma fecha ao atingir 30</span>
-              </>
-            ) : (
-              <span>Vagas limitadas · {TURMA_TOTAL_VAGAS} empresários · turma fecha em até 15 dias</span>
-            )}
-          </div>
-        </motion.div>
+                <span className="text-sm text-bp-text-bright/90 md:text-base">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </motion.ul>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="mt-20 flex items-center gap-6 text-xs text-bp-text-muted md:text-sm"
-        >
-          <div className="flex items-center gap-2">
-            <span className="block size-1.5 rounded-full bg-bp-accent" />
-            <span className="font-mono uppercase tracking-[0.18em]">
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+          >
+            <CtaButton href={SOFIA_WHATSAPP} size="lg">
               Inscrições abertas
+            </CtaButton>
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
+              Vagas limitadas
             </span>
+          </motion.div>
+
+          {/* Tag PRESENCIAL no rodapé */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="mt-16 flex items-center gap-4"
+          >
+            <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
+            <span className="font-display text-2xl uppercase tracking-[0.32em] text-bp-accent text-glow-green">
+              Presencial
+            </span>
+            <span className="h-px flex-1 bg-gradient-to-l from-bp-accent/40 to-transparent" />
+          </motion.div>
+        </div>
+
+        {/* COLUNA VISUAL — card sintético com paleta do flyer */}
+        <motion.aside
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="relative hidden lg:block"
+        >
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/20 bg-bp-bg-card">
+            <div className="absolute inset-0 bg-gradient-to-br from-bp-accent/[0.18] via-transparent to-transparent" />
+            <div className="absolute -right-20 -top-20 size-[400px] rounded-full bg-bp-accent/[0.18] blur-3xl" />
+            <div className="absolute -bottom-32 -left-20 size-[400px] rounded-full bg-bp-accent/[0.08] blur-3xl" />
+
+            <div className="absolute inset-0 circuit-dots opacity-40" />
+
+            {/* Faixa superior */}
+            <div className="absolute left-0 right-0 top-0 flex items-center justify-between border-b border-bp-accent/20 bg-bp-bg/40 px-6 py-4 backdrop-blur-sm">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-accent">
+                3ª edição
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-text-secondary">
+                Turma 2026
+              </span>
+            </div>
+
+            {/* Tipografia central */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+              <span className="font-display text-7xl uppercase leading-none text-bp-accent text-glow-green">
+                IA
+              </span>
+              <span className="font-serif-italic mt-2 text-3xl text-bp-text-bright">
+                para
+              </span>
+              <span className="mt-2 block font-display text-4xl uppercase leading-none text-bp-text-bright">
+                Empresários
+              </span>
+              <span className="mt-6 max-w-[14rem] text-xs leading-relaxed text-bp-text-secondary">
+                Da curiosidade à implementação em{" "}
+                <span className="text-bp-accent">4 encontros</span>
+              </span>
+            </div>
+
+            {/* Faixa PRESENCIAL */}
+            <div className="absolute bottom-0 left-0 right-0 border-t border-bp-accent/20 bg-bp-accent px-6 py-3 text-center">
+              <span className="font-display text-lg uppercase tracking-[0.32em] text-black">
+                Presencial
+              </span>
+            </div>
+
+            {/* Cantos decorativos */}
+            <span className="absolute left-3 top-16 block h-12 w-12 border-l border-t border-bp-accent/40" />
+            <span className="absolute right-3 bottom-16 block h-12 w-12 border-b border-r border-bp-accent/40" />
           </div>
-          <span className="h-px w-12 bg-bp-text-muted/30" />
-          <span className="font-mono uppercase tracking-[0.18em]">
-            12h · 4 encontros · Presencial
-          </span>
-        </motion.div>
+
+          <div className="pointer-events-none absolute -inset-x-8 -bottom-12 h-32 bg-bp-accent/15 blur-3xl" />
+        </motion.aside>
       </div>
     </section>
   );
