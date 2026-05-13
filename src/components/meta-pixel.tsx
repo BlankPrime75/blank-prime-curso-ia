@@ -15,7 +15,14 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '${META_PIXEL_ID}');
-fbq('track', 'PageView');`}
+fbq('track', 'PageView');
+// Custom: distingue a view da land da view da página do Sympla
+// (ambos disparam PageView porque usam o mesmo pixel). Use este pra
+// medir só a landing; o PageView padrão fica pro retargeting agregado.
+fbq('trackCustom', 'LandingPageView', {
+  domain: 'blankprime.com',
+  source: 'landing'
+});`}
       </Script>
       <noscript>
         {/* eslint-disable-next-line @next/next/no-img-element */}
