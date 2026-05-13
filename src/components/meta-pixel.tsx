@@ -15,9 +15,10 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '${META_PIXEL_ID}');
-// Não disparamos PageView padrão na land — o PageView fica reservado
-// pra página do evento na Sympla (mesma Pixel ID). Aqui usamos só
-// o custom LandingPageView pra medir visitas à blankprime.com.
+fbq('track', 'PageView');
+// Custom adicional: distingue a view da land da view da página do Sympla
+// (ambos disparam PageView porque usam o mesmo pixel). Use este pra
+// medir só a landing; o PageView padrão fica pro retargeting agregado.
 fbq('trackCustom', 'LandingPageView', {
   domain: 'blankprime.com',
   source: 'landing'
@@ -30,7 +31,7 @@ fbq('trackCustom', 'LandingPageView', {
           width="1"
           style={{ display: "none" }}
           alt=""
-          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=LandingPageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
         />
       </noscript>
     </>
