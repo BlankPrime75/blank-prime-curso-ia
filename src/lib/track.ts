@@ -32,12 +32,14 @@ const CONTENT = {
   content_category: "curso-presencial",
 };
 
-/** Clique em qualquer botão que leva ao checkout do Sympla. */
+/** Clique em qualquer botão que leva ao checkout do Sympla.
+ *  Dispara só o custom CliqueSympla. NÃO disparamos InitiateCheckout
+ *  aqui — esse é o evento padrão do Meta pra quando a pessoa realmente
+ *  inicia a finalização da compra (que acontece no Sympla, depois de
+ *  adicionar o ingresso ao carrinho). Disparar nos dois lugares duplica
+ *  o evento e dificulta ler o funil real no Gerenciador de Eventos. */
 export function trackSymplaClick(origem: string) {
-  // evento padrão de funil — conta como "início de checkout"
-  fire("track", "InitiateCheckout", { ...CONTENT, origem });
-  // evento custom pra segmentar por origem do clique
-  fire("trackCustom", "CliqueSympla", { origem });
+  fire("trackCustom", "CliqueSympla", { ...CONTENT, origem });
 }
 
 /** Clique em qualquer botão/FAB de WhatsApp. */
