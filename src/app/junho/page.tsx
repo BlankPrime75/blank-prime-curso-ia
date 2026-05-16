@@ -68,7 +68,7 @@ function Atencao() {
             <span>Em Canoas</span>
           </div>
 
-          {/* HEADLINE — 2 anos atrasado */}
+          {/* HEADLINE: 2 anos atrasado */}
           <h1 className="mt-8 leading-[0.92]">
             <span className="block font-display text-[clamp(2.75rem,7.5vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
               Você está
@@ -213,8 +213,8 @@ function InteresseDor() {
             A IA que está aí, na sua tela, é a máquina mais extraordinária que já existiu
             na história dos negócios. Ela pode otimizar tarefas que tomam horas da sua semana,
             padronizar processos, treinar sua equipe, te ajudar a tomar decisão com mais
-            inteligência —{" "}
-            <strong className="text-bp-text-bright">funcionando 24 horas, sem pedir aumento.</strong>
+            inteligência.{" "}
+            <strong className="text-bp-text-bright">Funcionando 24 horas, sem pedir aumento.</strong>
           </p>
           <p>
             Mas pra isso ela precisa de{" "}
@@ -253,7 +253,7 @@ function InteresseVirada() {
           {[
             "Chegar em casa numa terça de junho e, antes de dormir, já ter aplicado algo que vai te economizar tempo na quarta de manhã.",
             "Sair do quarto encontro com um assistente inteligente cuidando daquela tarefa repetitiva que hoje toma horas da sua semana.",
-            "Sua equipe treinada por um assistente que você mesmo construiu — repetindo o seu padrão de qualidade, sem você precisar estar em cima.",
+            "Sua equipe treinada por um assistente que você mesmo construiu, repetindo o seu padrão de qualidade, sem você precisar estar em cima.",
             "Seus processos rodando com menos retrabalho, menos erro humano, menos &ldquo;esqueci de fazer&rdquo;.",
             "Chegar em dezembro de 2026 e saber que você está 2 anos à frente de quem só vai começar quando todo mundo já estiver no automático.",
           ].map((line, i) => (
@@ -297,12 +297,12 @@ function Encontros() {
     {
       data: "16/06",
       titulo: "Prompts, Contexto e Matéria-Prima",
-      body: "A técnica que faz a IA parar de dar resposta genérica. Você aprende a criar seus próprios prompts — inclusive os system prompts que profissionais usam — pra qualquer demanda da sua empresa.",
+      body: "A técnica que faz a IA parar de dar resposta genérica. Você aprende a criar seus próprios prompts (inclusive os system prompts que profissionais usam) pra qualquer demanda da sua empresa.",
     },
     {
       data: "23/06",
       titulo: "IA Criativa e Agentes Inteligentes",
-      body: "Apresentações, imagens, vídeos e a construção ao vivo do seu assistente inteligente — pra otimizar tarefas, padronizar processos ou treinar equipe. Você escolhe a sua maior dor.",
+      body: "Apresentações, imagens, vídeos e a construção ao vivo do seu assistente inteligente, pra otimizar tarefas, padronizar processos ou treinar equipe. Você escolhe a sua maior dor.",
     },
     {
       data: "30/06",
@@ -362,8 +362,8 @@ function Encontros() {
 function Diferencial() {
   const items = [
     { titulo: "É só pra empresário, sócio ou gestor.", body: "Linguagem de negócio. Zero código." },
-    { titulo: "Você aprende a pescar, não recebe o peixe.", body: "A gente não te entrega biblioteca pronta. Ensina a técnica pra você criar seus próprios prompts — inclusive system prompts. No fim do curso, você é autônomo." },
-    { titulo: "Turma reduzida e mista por segmento.", body: "Você troca experiência com empresários de outros mercados — e leva insight que turma homogênea nunca daria." },
+    { titulo: "Você aprende a pescar, não recebe o peixe.", body: "A gente não te entrega biblioteca pronta. Ensina a técnica pra você criar seus próprios prompts, inclusive system prompts. No fim do curso, você é autônomo." },
+    { titulo: "Turma reduzida e mista por segmento.", body: "Você troca experiência com empresários de outros mercados, e leva insight que turma homogênea nunca daria." },
     { titulo: "Prática desde o primeiro minuto.", body: "Notebook aberto. Implementação real. Nada de slide." },
     { titulo: "Você sai com coisa funcionando.", body: "Não com certificado de gaveta." },
   ];
