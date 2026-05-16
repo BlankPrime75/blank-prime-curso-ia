@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
-import { Check, MapPin, Clock, Calendar, Users, Sparkles } from "lucide-react";
-import { AnimatedSection, staggerContainer, staggerItem } from "@/components/AnimatedSection";
+import Image from "next/image";
+import {
+  CalendarDays,
+  Clock,
+  MapPin,
+  Sparkles,
+  Users,
+  Check,
+  Calendar,
+} from "lucide-react";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { AiBackground } from "@/components/AiBackground";
 import { LightFx } from "@/components/LightFx";
@@ -25,87 +34,141 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-// ─── SEÇÃO 1 · ATENÇÃO ──────────────────────────────────────────────────
+const HERO_FACTS = [
+  { icon: CalendarDays, label: "9, 16, 23 e 30 de Junho de 2026 · Terças-feiras" },
+  { icon: Clock, label: "18h30 às 21h30 · 12h totais" },
+  { icon: MapPin, label: "CICS Canoas · Rua Ipiranga, 95 · Centro" },
+  { icon: Users, label: "Turma reduzida · vagas limitadas" },
+];
+
+// ─── SEÇÃO 1 · ATENÇÃO (mesmo layout do Hero principal) ─────────────────
 function Atencao() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
-      <AiBackground className="opacity-70" />
-      <div className="relative mx-auto flex min-h-[88svh] max-w-6xl flex-col justify-center px-6 py-24 md:py-32">
-        <AnimatedSection>
-          <div className="mb-8 flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
-            <span className="rounded-full border border-bp-border-strong bg-bp-bg-elevated/70 px-3 py-1 backdrop-blur">
-              3ª Edição
+    <section className="relative isolate overflow-hidden border-b border-bp-border-neutral bg-bp-bg">
+      {/* fundo: rede neural + grid sutil + halos verdes */}
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-70 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <div className="absolute inset-0 grid-bg radial-fade-bottom opacity-30" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[640px] w-[1100px] -translate-x-1/2 accent-halo blur-2xl ai-pulse" />
+      <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.07] blur-3xl ai-pulse [animation-delay:1.6s]" />
+      <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-12 pb-24 md:pt-16 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+        {/* COLUNA TEXTO */}
+        <div>
+          {/* Badges do topo */}
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-secondary">
+            <span className="inline-flex items-center gap-1.5 text-bp-accent">
+              <Sparkles className="size-3" />
+              3ª edição
             </span>
-            <span className="rounded-full border border-bp-border-strong bg-bp-bg-elevated/70 px-3 py-1 backdrop-blur">
-              Turma de Junho
-            </span>
-            <span className="rounded-full border border-bp-accent/40 bg-bp-accent-soft px-3 py-1 text-bp-accent">
-              Vagas limitadas
-            </span>
+            <span className="size-1 rounded-full bg-bp-text-muted/60" />
+            <span>Turma de Junho</span>
+            <span className="size-1 rounded-full bg-bp-text-muted/60" />
+            <span>Em Canoas</span>
           </div>
 
-          <h1 className="font-display text-balance text-5xl uppercase leading-[0.92] tracking-tight text-bp-text-bright sm:text-6xl md:text-7xl lg:text-[88px]">
-            Você está <span className="text-bp-accent">dois anos atrasado.</span>
-            <br className="hidden sm:block" />
-            <span className="font-serif-italic text-bp-text-bright/90 normal-case tracking-tight">
-              E cada mês que passa
-            </span>{" "}
-            <span className="text-bp-accent">custa mais caro.</span>
+          {/* HEADLINE — 2 anos atrasado */}
+          <h1 className="mt-8 leading-[0.92]">
+            <span className="block font-display text-[clamp(2.75rem,7.5vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
+              Você está
+            </span>
+            <span className="block font-display text-[clamp(3rem,9vw,6.5rem)] uppercase tracking-tight text-bp-accent text-glow-green">
+              2 anos
+            </span>
+            <span className="block font-display text-[clamp(2.75rem,7.5vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
+              atrasado.
+            </span>
+            <span className="mt-3 block font-serif-italic text-[clamp(1.5rem,3.5vw,2.5rem)] text-bp-text-bright/85">
+              E cada mês custa{" "}
+              <span className="not-italic font-display uppercase text-bp-accent">
+                mais caro.
+              </span>
+            </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-balance text-lg leading-relaxed text-bp-text-secondary md:text-xl">
-            A IA já chegou no seu mercado. Seu concorrente já está usando.
-            Você ainda está &ldquo;pensando em aprender&rdquo;.{" "}
-            <strong className="text-bp-text-bright">Junho é a sua chance de virar o jogo.</strong>
+          {/* Tagline */}
+          <p className="mt-8 max-w-xl text-pretty text-lg text-bp-text-primary md:text-xl">
+            A IA já chegou no seu mercado. Seu concorrente já está usando.{" "}
+            <span className="text-bp-text-bright">
+              Junho é a sua chance de virar o jogo.
+            </span>
           </p>
 
-          <div className="mt-10 flex flex-col gap-3 rounded-2xl border border-bp-border bg-bp-bg-elevated/60 p-6 backdrop-blur sm:flex-row sm:items-center sm:gap-8">
-            <div className="flex items-center gap-3">
-              <Calendar className="size-5 text-bp-accent" strokeWidth={1.7} />
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-wider text-bp-text-muted">
-                  Datas
-                </div>
-                <div className="text-sm font-semibold text-bp-text-bright">
-                  9, 16, 23 e 30 de junho · terças
-                </div>
-              </div>
-            </div>
-            <div className="h-px w-full bg-bp-border sm:h-10 sm:w-px" />
-            <div className="flex items-center gap-3">
-              <Clock className="size-5 text-bp-accent" strokeWidth={1.7} />
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-wider text-bp-text-muted">
-                  Horário
-                </div>
-                <div className="text-sm font-semibold text-bp-text-bright">
-                  18h30 às 21h30
-                </div>
-              </div>
-            </div>
-            <div className="h-px w-full bg-bp-border sm:h-10 sm:w-px" />
-            <div className="flex items-center gap-3">
-              <MapPin className="size-5 text-bp-accent" strokeWidth={1.7} />
-              <div>
-                <div className="font-mono text-[11px] uppercase tracking-wider text-bp-text-muted">
-                  Local
-                </div>
-                <div className="text-sm font-semibold text-bp-text-bright">
-                  CICS Canoas · turma reduzida
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Bullets com ícones verdes */}
+          <ul className="mt-10 space-y-3.5">
+            {HERO_FACTS.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-start gap-3.5">
+                <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-bp-accent/30 bg-bp-accent-soft text-bp-accent">
+                  <Icon className="size-4" />
+                </span>
+                <span className="text-sm text-bp-text-bright/90 md:text-base">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
 
-          <div className="mt-10">
+          {/* CTA */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <JunhoCtaButton origem="hero" size="xl">
               Falar com a Aline agora
             </JunhoCtaButton>
-            <p className="mt-3 font-mono text-xs uppercase tracking-wider text-bp-text-muted">
-              Conversa direta · sem formulário · WhatsApp
-            </p>
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
+              Conversa direta · sem formulário
+            </span>
           </div>
-        </AnimatedSection>
+
+          {/* Tag PRESENCIAL no rodapé */}
+          <div className="mt-16 flex items-center gap-4">
+            <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
+            <span className="font-display text-2xl uppercase tracking-[0.32em] text-bp-accent text-glow-green">
+              Presencial
+            </span>
+            <span className="h-px flex-1 bg-gradient-to-l from-bp-accent/40 to-transparent" />
+          </div>
+        </div>
+
+        {/* COLUNA VISUAL · foto do instrutor (4:5) */}
+        <aside className="relative hidden lg:block">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/25">
+            <Image
+              src="/instrutor.png"
+              alt="Instrutor do curso IA para Empresários"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              priority
+              className="object-cover"
+            />
+
+            {/* vinheta */}
+            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
+
+            {/* badges topo */}
+            <div className="absolute left-0 right-0 top-0 flex items-center justify-between px-5 py-4">
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-accent text-glow-green">
+                3ª edição
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/80">
+                Junho 2026
+              </span>
+            </div>
+
+            {/* faixa PRESENCIAL */}
+            <div className="absolute bottom-0 left-0 right-0 bg-bp-accent px-6 py-3 text-center">
+              <span className="font-display text-lg uppercase tracking-[0.32em] text-black">
+                Presencial · Em Canoas
+              </span>
+            </div>
+
+            {/* cantos decorativos */}
+            <span className="absolute left-3 top-12 block h-10 w-10 border-l border-t border-bp-accent/50" />
+            <span className="absolute right-3 bottom-16 block h-10 w-10 border-b border-r border-bp-accent/50" />
+          </div>
+
+          {/* glow externo */}
+          <div className="pointer-events-none absolute -inset-x-8 -bottom-12 h-32 bg-bp-accent/15 blur-3xl" />
+        </aside>
       </div>
     </section>
   );
@@ -114,9 +177,9 @@ function Atencao() {
 // ─── SEÇÃO 2 · INTERESSE (Dor) ──────────────────────────────────────────
 function InteresseDor() {
   return (
-    <AnimatedSection className="relative border-b border-bp-border bg-bp-bg-elevated">
-      <AiBackground className="opacity-40" />
-      <div className="relative mx-auto max-w-5xl px-6 py-24 md:py-32">
+    <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]" />
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/02"
           eyebrow="O que está acontecendo"
@@ -172,9 +235,9 @@ function InteresseDor() {
 // ─── SEÇÃO 3 · INTERESSE (Virada) ───────────────────────────────────────
 function InteresseVirada() {
   return (
-    <AnimatedSection className="section-light relative overflow-hidden border-b border-bp-border">
+    <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative mx-auto max-w-5xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/03"
           eyebrow="A virada"
@@ -248,9 +311,9 @@ function Encontros() {
   ];
 
   return (
-    <AnimatedSection className="relative border-b border-bp-border bg-bp-bg">
-      <AiBackground className="opacity-45" />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-45 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_85%)]" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/04"
           eyebrow="O que acontece"
@@ -297,32 +360,17 @@ function Encontros() {
 // ─── SEÇÃO 5 · DESEJO (Diferencial) ─────────────────────────────────────
 function Diferencial() {
   const items = [
-    {
-      titulo: "É só pra empresário, sócio ou gestor.",
-      body: "Linguagem de negócio. Zero código.",
-    },
-    {
-      titulo: "Você aprende a pescar, não recebe o peixe.",
-      body: "A gente não te entrega biblioteca pronta. Ensina a técnica pra você criar seus próprios prompts — inclusive system prompts. No fim do curso, você é autônomo.",
-    },
-    {
-      titulo: "Turma reduzida e mista por segmento.",
-      body: "Você troca experiência com empresários de outros mercados — e leva insight que turma homogênea nunca daria.",
-    },
-    {
-      titulo: "Prática desde o primeiro minuto.",
-      body: "Notebook aberto. Implementação real. Nada de slide.",
-    },
-    {
-      titulo: "Você sai com coisa funcionando.",
-      body: "Não com certificado de gaveta.",
-    },
+    { titulo: "É só pra empresário, sócio ou gestor.", body: "Linguagem de negócio. Zero código." },
+    { titulo: "Você aprende a pescar, não recebe o peixe.", body: "A gente não te entrega biblioteca pronta. Ensina a técnica pra você criar seus próprios prompts — inclusive system prompts. No fim do curso, você é autônomo." },
+    { titulo: "Turma reduzida e mista por segmento.", body: "Você troca experiência com empresários de outros mercados — e leva insight que turma homogênea nunca daria." },
+    { titulo: "Prática desde o primeiro minuto.", body: "Notebook aberto. Implementação real. Nada de slide." },
+    { titulo: "Você sai com coisa funcionando.", body: "Não com certificado de gaveta." },
   ];
 
   return (
-    <AnimatedSection className="relative border-b border-bp-border bg-bp-bg-elevated">
-      <AiBackground className="opacity-35" />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/05"
           eyebrow="Diferencial"
@@ -334,9 +382,7 @@ function Diferencial() {
           }
         />
 
-        <div
-          className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-6"
-        >
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
           {items.map((it, i) => {
             const placement = i === items.length - 2 ? "lg:col-start-2" : "";
             return (
@@ -367,16 +413,14 @@ function Diferencial() {
 // ─── SEÇÃO 6 · DESEJO (Prova social) ────────────────────────────────────
 function ProvaSocial() {
   return (
-    <AnimatedSection className="section-light relative overflow-hidden border-b border-bp-border">
+    <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 text-center md:py-32">
         <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-text-muted">
           /06 · Prova social
         </div>
         <h2 className="mx-auto mt-6 max-w-4xl font-display text-balance text-4xl uppercase leading-[0.95] tracking-tight text-bp-text-bright sm:text-5xl md:text-6xl">
-          Mais de{" "}
-          <span className="text-bp-accent">100 empresários</span>{" "}
-          já passaram por esse método.
+          Mais de <span className="text-bp-accent">100 empresários</span> já passaram por esse método.
         </h2>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -403,27 +447,20 @@ function ProvaSocial() {
         <div className="mt-14 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
           <div>
             <div className="font-display text-5xl text-bp-accent md:text-6xl">+100</div>
-            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">
-              Alunos formados
-            </p>
+            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Alunos formados</p>
           </div>
           <div>
             <div className="font-display text-5xl text-bp-accent md:text-6xl">3</div>
-            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">
-              Edições validadas
-            </p>
+            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Edições validadas</p>
           </div>
           <div>
             <div className="font-display text-5xl text-bp-accent md:text-6xl">100%</div>
-            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">
-              Aplicação prática
-            </p>
+            <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Aplicação prática</p>
           </div>
         </div>
 
         <p className="mt-12 text-pretty text-base leading-relaxed text-bp-text-primary md:text-lg">
-          Não é teoria. É método testado, refinado e validado em{" "}
-          <strong>3 edições.</strong>
+          Não é teoria. É método testado, refinado e validado em <strong>3 edições.</strong>
         </p>
         <p className="mt-3 text-pretty text-base text-bp-text-secondary md:text-lg">
           A 3ª edição é em junho.{" "}
@@ -444,16 +481,15 @@ function Incluido() {
     "Grupo exclusivo de alunos pós-curso",
   ];
   return (
-    <AnimatedSection className="relative border-b border-bp-border bg-bp-bg">
-      <AiBackground className="opacity-40" />
-      <div className="relative mx-auto max-w-4xl px-6 py-24 md:py-32">
+    <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
+      <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/07"
           eyebrow="O que está incluído"
           title={
             <>
-              Tudo que você leva{" "}
-              <span className="text-bp-accent">pra casa.</span>
+              Tudo que você leva <span className="text-bp-accent">pra casa.</span>
             </>
           }
         />
@@ -478,35 +514,15 @@ function Incluido() {
 // ─── SEÇÃO 8 · AÇÃO (Investimento) ──────────────────────────────────────
 function Investimento() {
   const lotes = [
-    {
-      tag: "🟢 1º LOTE",
-      data: "até 17/05",
-      individual: "R$ 697",
-      individualParc: "12x",
-      dupla: "R$ 1.184",
-      duplaPP: "R$ 592/pessoa",
-      destaque: true,
-    },
-    {
-      tag: "🟡 2º LOTE",
-      data: "18/05 a 02/06",
-      individual: "R$ 897",
-      dupla: "R$ 1.524",
-      destaque: false,
-    },
-    {
-      tag: "🔴 3º LOTE",
-      data: "03/06 a 08/06",
-      individual: "R$ 1.097",
-      dupla: "R$ 1.864",
-      destaque: false,
-    },
+    { tag: "🟢 1º LOTE", data: "até 17/05", individual: "R$ 697", individualParc: "12x", dupla: "R$ 1.184", duplaPP: "R$ 592/pessoa", destaque: true },
+    { tag: "🟡 2º LOTE", data: "18/05 a 02/06", individual: "R$ 897", dupla: "R$ 1.524", destaque: false },
+    { tag: "🔴 3º LOTE", data: "03/06 a 08/06", individual: "R$ 1.097", dupla: "R$ 1.864", destaque: false },
   ];
 
   return (
-    <AnimatedSection className="section-light relative overflow-hidden border-b border-bp-border">
+    <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/08"
           eyebrow="Investimento"
@@ -539,29 +555,17 @@ function Investimento() {
               </div>
               <div className="mt-6 space-y-5">
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">
-                    Individual
-                  </div>
-                  <div className="mt-1 font-display text-4xl text-bp-text-bright">
-                    {l.individual}
-                  </div>
+                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">Individual</div>
+                  <div className="mt-1 font-display text-4xl text-bp-text-bright">{l.individual}</div>
                   {l.individualParc && (
-                    <div className="text-xs text-bp-text-muted">
-                      em {l.individualParc} sem juros
-                    </div>
+                    <div className="text-xs text-bp-text-muted">em {l.individualParc} sem juros</div>
                   )}
                 </div>
                 <div className="h-px bg-bp-border" />
                 <div>
-                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">
-                    Combo Dupla
-                  </div>
-                  <div className="mt-1 font-display text-3xl text-bp-text-bright">
-                    {l.dupla}
-                  </div>
-                  {l.duplaPP && (
-                    <div className="text-xs text-bp-text-muted">{l.duplaPP}</div>
-                  )}
+                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">Combo Dupla</div>
+                  <div className="mt-1 font-display text-3xl text-bp-text-bright">{l.dupla}</div>
+                  {l.duplaPP && <div className="text-xs text-bp-text-muted">{l.duplaPP}</div>}
                 </div>
               </div>
             </div>
@@ -571,12 +575,9 @@ function Investimento() {
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-bp-accent/30 bg-bp-bg-card/60 p-8 backdrop-blur">
             <Users className="size-7 text-bp-accent" strokeWidth={1.6} />
-            <h3 className="mt-4 text-xl font-semibold text-bp-text-bright">
-              Combo Dupla · 15% off
-            </h3>
+            <h3 className="mt-4 text-xl font-semibold text-bp-text-bright">Combo Dupla · 15% off</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-secondary">
-              2 ingressos com{" "}
-              <strong className="text-bp-text-bright">15% off.</strong> Pra sócios,
+              2 ingressos com <strong className="text-bp-text-bright">15% off.</strong> Pra sócios,
               casal empresário ou empresário + gestor.
             </p>
             <p className="mt-3 text-base italic leading-relaxed text-bp-text-primary">
@@ -585,16 +586,11 @@ function Investimento() {
           </div>
 
           <div className="rounded-2xl border border-bp-border bg-bp-bg-card/60 p-8 backdrop-blur">
-            <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-text-muted">
-              Conta simples
-            </div>
+            <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-text-muted">Conta simples</div>
             <p className="mt-4 text-base leading-relaxed text-bp-text-primary md:text-lg">
-              Se você economizar{" "}
-              <strong className="text-bp-text-bright">5 horas por semana</strong>{" "}
+              Se você economizar <strong className="text-bp-text-bright">5 horas por semana</strong>{" "}
               com o que aprender,{" "}
-              <span className="text-bp-accent font-semibold">
-                o curso se paga no primeiro mês.
-              </span>{" "}
+              <span className="text-bp-accent font-semibold">o curso se paga no primeiro mês.</span>{" "}
               O resto é vantagem.
             </p>
           </div>
@@ -620,16 +616,15 @@ function Investimento() {
 // ─── SEÇÃO 9 · AÇÃO (Logística) ─────────────────────────────────────────
 function Logistica() {
   return (
-    <AnimatedSection className="relative border-b border-bp-border bg-bp-bg">
-      <AiBackground className="opacity-35" />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+    <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
         <SectionHeading
           number="/09"
           eyebrow="Logística"
           title={
             <>
-              Onde, quando e o que{" "}
-              <span className="text-bp-accent">levar.</span>
+              Onde, quando e o que <span className="text-bp-accent">levar.</span>
             </>
           }
         />
@@ -652,9 +647,7 @@ function Logistica() {
             <Calendar className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 font-display text-2xl text-bp-text-bright">Quando</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-primary">
-              <strong className="text-bp-text-bright">
-                Terças: 9, 16, 23 e 30
-              </strong>
+              <strong className="text-bp-text-bright">Terças: 9, 16, 23 e 30</strong>
               <br />
               de junho de 2026
             </p>
@@ -665,14 +658,10 @@ function Logistica() {
 
           <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-7">
             <Sparkles className="size-7 text-bp-accent" strokeWidth={1.6} />
-            <h3 className="mt-4 font-display text-2xl text-bp-text-bright">
-              O que levar
-            </h3>
+            <h3 className="mt-4 font-display text-2xl text-bp-text-bright">O que levar</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-primary">
               Notebook. Cabo.{" "}
-              <strong className="text-bp-text-bright">
-                Vontade de implementar.
-              </strong>
+              <strong className="text-bp-text-bright">Vontade de implementar.</strong>
             </p>
           </div>
         </div>
@@ -685,60 +674,57 @@ function Logistica() {
 function CtaFinal() {
   return (
     <section className="relative isolate overflow-hidden bg-bp-bg">
-      <AiBackground className="opacity-80" />
+      <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-80 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_90%)]" />
       {/* glow no centro */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-[1] h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bp-accent/12 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-bp-accent/12 blur-[120px]"
       />
-      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 py-28 text-center md:py-36">
-        <AnimatedSection>
-          <div className="inline-flex items-center gap-2 rounded-full border border-bp-accent/40 bg-bp-accent-soft px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-accent">
-            <span className="size-1.5 animate-pulse rounded-full bg-bp-accent" />
-            Última chamada
-          </div>
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 py-28 text-center md:py-36">
+        <div className="inline-flex items-center gap-2 rounded-full border border-bp-accent/40 bg-bp-accent-soft px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-accent">
+          <span className="size-1.5 animate-pulse rounded-full bg-bp-accent" />
+          Última chamada
+        </div>
 
-          <h2 className="mt-8 font-display text-balance text-5xl uppercase leading-[0.94] tracking-tight text-bp-text-bright sm:text-6xl md:text-7xl">
-            Dia 17 de maio o preço{" "}
-            <span className="text-bp-accent">sobe R$ 200.</span>
-            <br className="hidden sm:block" />
-            <span className="font-serif-italic text-bp-text-bright/90 normal-case tracking-tight">
-              Em junho o curso acontece
-            </span>{" "}
-            <span className="text-bp-accent">com ou sem você.</span>
-          </h2>
+        <h2 className="mt-8 font-display text-balance text-5xl uppercase leading-[0.94] tracking-tight text-bp-text-bright sm:text-6xl md:text-7xl">
+          Dia 17 de maio o preço <span className="text-bp-accent">sobe R$ 200.</span>
+          <br className="hidden sm:block" />
+          <span className="font-serif-italic text-bp-text-bright/90 normal-case tracking-tight">
+            Em junho o curso acontece
+          </span>{" "}
+          <span className="text-bp-accent">com ou sem você.</span>
+        </h2>
 
-          <p className="mx-auto mt-8 max-w-2xl text-balance text-lg leading-relaxed text-bp-text-secondary md:text-xl">
-            A inscrição é direta com a{" "}
-            <strong className="text-bp-text-bright">Aline Blank</strong>, no WhatsApp.
-            Ela esclarece dúvida, indica o lote certo pro seu caso e te manda o link.
+        <p className="mx-auto mt-8 max-w-2xl text-balance text-lg leading-relaxed text-bp-text-secondary md:text-xl">
+          A inscrição é direta com a{" "}
+          <strong className="text-bp-text-bright">Aline Blank</strong>, no WhatsApp.
+          Ela esclarece dúvida, indica o lote certo pro seu caso e te manda o link.
+        </p>
+
+        <p className="mt-4 font-mono text-sm uppercase tracking-[0.22em] text-bp-text-muted">
+          Sem formulário · Sem espera · Conversa direta
+        </p>
+
+        <div className="mt-12 flex flex-col items-center gap-4">
+          <JunhoCtaButton origem="final" size="xl">
+            Chamar a Aline no WhatsApp
+          </JunhoCtaButton>
+          <a
+            href="tel:+5551993304978"
+            className="font-display text-3xl text-bp-text-bright transition-colors hover:text-bp-accent md:text-4xl"
+          >
+            (51) 99330-4978
+          </a>
+          <p className="max-w-md text-pretty text-sm italic leading-relaxed text-bp-text-muted">
+            Manda: &ldquo;Quero saber do curso de IA de junho.&rdquo;
           </p>
+        </div>
 
-          <p className="mt-4 font-mono text-sm uppercase tracking-[0.22em] text-bp-text-muted">
-            Sem formulário · Sem espera · Conversa direta
-          </p>
-
-          <div className="mt-12 flex flex-col items-center gap-4">
-            <JunhoCtaButton origem="final" size="xl">
-              Chamar a Aline no WhatsApp
-            </JunhoCtaButton>
-            <a
-              href="tel:+5551993304978"
-              className="font-display text-3xl text-bp-text-bright transition-colors hover:text-bp-accent md:text-4xl"
-            >
-              (51) 99330-4978
-            </a>
-            <p className="max-w-md text-pretty text-sm italic leading-relaxed text-bp-text-muted">
-              Manda: &ldquo;Quero saber do curso de IA de junho.&rdquo;
-            </p>
-          </div>
-
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-wider text-bp-text-muted">
-            <span>⏳ 1º lote válido até 17/05</span>
-            <span className="hidden h-1 w-1 rounded-full bg-bp-text-muted/40 sm:inline-block" />
-            <span>🪑 Turma reduzida · vagas limitadas</span>
-          </div>
-        </AnimatedSection>
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-wider text-bp-text-muted">
+          <span>⏳ 1º lote válido até 17/05</span>
+          <span className="hidden h-1 w-1 rounded-full bg-bp-text-muted/40 sm:inline-block" />
+          <span>🪑 Turma reduzida · vagas limitadas</span>
+        </div>
       </div>
     </section>
   );
@@ -753,8 +739,8 @@ function Footer() {
           Curso IA para Empresários · 3ª edição
         </p>
         <p className="mt-2 text-sm text-bp-text-secondary">
-          Realização: <strong className="text-bp-text-bright">Blank Prime</strong>{" "}
-          · Local: CICS Canoas
+          Realização: <strong className="text-bp-text-bright">Blank Prime</strong> ·
+          Local: CICS Canoas
         </p>
         <p className="mt-2 text-xs text-bp-text-muted">
           Recomendado pra donos de negócio, sócios e gestores.
