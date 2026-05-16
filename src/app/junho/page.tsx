@@ -54,8 +54,8 @@ function Atencao() {
       <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-6 pt-8 pb-14 md:pt-10 md:pb-18 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-        {/* COLUNA TEXTO — em mobile fica DEPOIS da foto + CTA (ordem 3) */}
-        <div className="order-3 lg:order-1">
+        {/* COLUNA TEXTO — mobile: order-1 (no topo). Desktop: à esquerda. */}
+        <div className="order-1 lg:order-1">
           {/* Badges do topo */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-secondary">
             <span className="inline-flex items-center gap-1.5 text-bp-accent">
@@ -130,9 +130,9 @@ function Atencao() {
         </div>
 
         {/* COLUNA VISUAL · foto do instrutor.
-            Mobile: aparece NO TOPO, contida em max-w-xs (320px) pra não dominar.
-            Desktop: vai pro lado direito normal. */}
-        <aside className="relative order-1 mx-auto w-full max-w-xs lg:order-2 lg:mx-0 lg:max-w-none">
+            Mobile: order-2 (depois do texto), contida em max-w-xs (320px).
+            Desktop: order-2 também (à direita do texto). */}
+        <aside className="relative order-2 mx-auto w-full max-w-xs lg:order-2 lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/25">
             <Image
               src="/instrutor.png"
@@ -175,7 +175,7 @@ function Atencao() {
 
         {/* MOBILE ONLY — bloco CTA + Presencial logo abaixo da foto.
             Em desktop esses dois aparecem dentro da COLUNA TEXTO (hidden lg:flex acima). */}
-        <div className="order-2 flex flex-col gap-5 lg:hidden">
+        <div className="order-3 flex flex-col gap-5 lg:hidden">
           <JunhoCtaButton origem="hero-mobile-top" size="xl">
             Garantir minha vaga
           </JunhoCtaButton>
