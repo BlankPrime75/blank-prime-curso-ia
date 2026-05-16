@@ -16,6 +16,7 @@ import { LightFx } from "@/components/LightFx";
 import { JunhoCtaButton } from "@/components/JunhoCtaButton";
 import { JunhoPixelEvent } from "@/components/JunhoPixelEvent";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { CountdownBanner } from "@/components/CountdownBanner";
 
 export const metadata: Metadata = {
   title: "Curso IA para Empresários · Junho 2026 | Blank Prime",
@@ -52,7 +53,7 @@ function Atencao() {
       <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.07] blur-3xl ai-pulse [animation-delay:1.6s]" />
       <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-16 px-6 pt-12 pb-24 md:pt-16 md:pb-32 lg:grid-cols-[1.15fr_1fr] lg:gap-12">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-6 pt-8 pb-14 md:pt-10 md:pb-18 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
         {/* COLUNA TEXTO */}
         <div>
           {/* Badges do topo */}
@@ -119,7 +120,7 @@ function Atencao() {
           </div>
 
           {/* Tag PRESENCIAL no rodapé */}
-          <div className="mt-16 flex items-center gap-4">
+          <div className="mt-12 flex items-center gap-4">
             <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
             <span className="font-display text-2xl uppercase tracking-[0.32em] text-bp-accent text-glow-green">
               Presencial
@@ -179,7 +180,7 @@ function InteresseDor() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]" />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/02"
           eyebrow="O que está acontecendo"
@@ -237,7 +238,7 @@ function InteresseVirada() {
   return (
     <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/03"
           eyebrow="A virada"
@@ -248,7 +249,7 @@ function InteresseVirada() {
             </>
           }
         />
-        <div className="mt-14 space-y-5">
+        <div className="mt-10 space-y-5">
           {[
             "Chegar em casa numa terça de junho e, antes de dormir, já ter aplicado algo que vai te economizar tempo na quarta de manhã.",
             "Sair do quarto encontro com um assistente inteligente cuidando daquela tarefa repetitiva que hoje toma horas da sua semana.",
@@ -313,7 +314,7 @@ function Encontros() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-45 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_85%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/04"
           eyebrow="O que acontece"
@@ -325,7 +326,7 @@ function Encontros() {
           }
         />
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
           {items.map((it, i) => (
             <article
               key={i}
@@ -370,7 +371,7 @@ function Diferencial() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/05"
           eyebrow="Diferencial"
@@ -382,7 +383,7 @@ function Diferencial() {
           }
         />
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
           {items.map((it, i) => {
             const placement = i === items.length - 2 ? "lg:col-start-2" : "";
             return (
@@ -423,7 +424,7 @@ function ProvaSocial() {
           Mais de <span className="text-bp-accent">100 empresários</span> já passaram por esse método.
         </h2>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             "Donos de loja",
             "Donos de indústria",
@@ -444,7 +445,7 @@ function ProvaSocial() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
+        <div className="mt-10 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
           <div>
             <div className="font-display text-5xl text-bp-accent md:text-6xl">+100</div>
             <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Alunos formados</p>
@@ -483,7 +484,7 @@ function Incluido() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/07"
           eyebrow="O que está incluído"
@@ -522,7 +523,7 @@ function Investimento() {
   return (
     <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/08"
           eyebrow="Investimento"
@@ -535,7 +536,7 @@ function Investimento() {
           }
         />
 
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
           {lotes.map((l, i) => (
             <div
               key={i}
@@ -572,7 +573,7 @@ function Investimento() {
           ))}
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-bp-accent/30 bg-bp-bg-card/60 p-8 backdrop-blur">
             <Users className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 text-xl font-semibold text-bp-text-bright">Combo Dupla · 15% off</h3>
@@ -596,7 +597,7 @@ function Investimento() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center">
+        <div className="mt-10 flex flex-col items-center">
           <JunhoCtaButton
             origem="pos-investimento"
             size="xl"
@@ -618,7 +619,7 @@ function Logistica() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
         <SectionHeading
           number="/09"
           eyebrow="Logística"
@@ -629,7 +630,7 @@ function Logistica() {
           }
         />
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
           <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-7">
             <MapPin className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 font-display text-2xl text-bp-text-bright">Onde</h3>
@@ -720,7 +721,7 @@ function CtaFinal() {
           </p>
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-wider text-bp-text-muted">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-wider text-bp-text-muted">
           <span>⏳ 1º lote válido até 17/05</span>
           <span className="hidden h-1 w-1 rounded-full bg-bp-text-muted/40 sm:inline-block" />
           <span>🪑 Turma reduzida · vagas limitadas</span>
@@ -754,6 +755,7 @@ export default function JunhoPage() {
   return (
     <main className="min-h-screen bg-bp-bg">
       <JunhoPixelEvent />
+      <CountdownBanner />
       <Atencao />
       <InteresseDor />
       <InteresseVirada />
