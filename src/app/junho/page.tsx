@@ -54,8 +54,8 @@ function Atencao() {
       <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-6 pt-8 pb-14 md:pt-10 md:pb-18 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-        {/* COLUNA TEXTO — em mobile fica DEPOIS da foto (ordem invertida) */}
-        <div className="order-2 lg:order-1">
+        {/* COLUNA TEXTO — em mobile fica DEPOIS da foto + CTA (ordem 3) */}
+        <div className="order-3 lg:order-1">
           {/* Badges do topo */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-secondary">
             <span className="inline-flex items-center gap-1.5 text-bp-accent">
@@ -109,20 +109,20 @@ function Atencao() {
             ))}
           </ul>
 
-          {/* CTA */}
-          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+          {/* CTA — só em desktop dentro do texto (mobile usa o bloco order-2 abaixo) */}
+          <div className="mt-10 hidden lg:flex lg:flex-row lg:items-center lg:gap-4">
             <JunhoCtaButton origem="hero" size="xl">
               Garantir minha vaga
             </JunhoCtaButton>
-            <span className="text-center font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted sm:text-left">
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
               Conversa direta · sem formulário
             </span>
           </div>
 
-          {/* Tag PRESENCIAL no rodapé */}
-          <div className="mt-10 flex items-center gap-4 sm:mt-12">
+          {/* Tag PRESENCIAL — desktop only (mobile aparece no bloco abaixo) */}
+          <div className="mt-12 hidden items-center gap-4 lg:flex">
             <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
-            <span className="font-display text-lg uppercase tracking-[0.32em] text-bp-accent text-glow-green sm:text-2xl">
+            <span className="font-display text-2xl uppercase tracking-[0.32em] text-bp-accent text-glow-green">
               Presencial
             </span>
             <span className="h-px flex-1 bg-gradient-to-l from-bp-accent/40 to-transparent" />
@@ -172,6 +172,26 @@ function Atencao() {
           {/* glow externo */}
           <div className="pointer-events-none absolute -inset-x-8 -bottom-12 h-32 bg-bp-accent/15 blur-3xl" />
         </aside>
+
+        {/* MOBILE ONLY — bloco CTA + Presencial logo abaixo da foto.
+            Em desktop esses dois aparecem dentro da COLUNA TEXTO (hidden lg:flex acima). */}
+        <div className="order-2 flex flex-col gap-5 lg:hidden">
+          <JunhoCtaButton origem="hero-mobile-top" size="xl">
+            Garantir minha vaga
+          </JunhoCtaButton>
+          <span className="text-center font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
+            Conversa direta · sem formulário
+          </span>
+
+          {/* Divisor PRESENCIAL */}
+          <div className="mt-2 flex items-center gap-4">
+            <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
+            <span className="font-display text-lg uppercase tracking-[0.32em] text-bp-accent text-glow-green">
+              Presencial
+            </span>
+            <span className="h-px flex-1 bg-gradient-to-l from-bp-accent/40 to-transparent" />
+          </div>
+        </div>
       </div>
     </section>
   );
