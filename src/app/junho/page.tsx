@@ -112,7 +112,7 @@ function Atencao() {
           {/* CTA */}
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <JunhoCtaButton origem="hero" size="xl">
-              Falar com a Aline agora
+              Garantir minha vaga
             </JunhoCtaButton>
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
               Conversa direta · sem formulário
@@ -180,7 +180,7 @@ function InteresseDor() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]" />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/02"
           eyebrow="O que está acontecendo"
@@ -191,7 +191,7 @@ function InteresseDor() {
             </>
           }
         />
-        <div className="mt-12 space-y-7 text-pretty text-lg leading-relaxed text-bp-text-secondary md:text-xl">
+        <div className="mt-8 space-y-3 text-pretty text-lg leading-relaxed text-bp-text-secondary md:text-xl">
           <p>Toda noite você deita pensando a mesma coisa.</p>
           <p>
             Que precisa <strong className="text-bp-text-bright">organizar a empresa.</strong>{" "}
@@ -238,7 +238,7 @@ function InteresseVirada() {
   return (
     <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/03"
           eyebrow="A virada"
@@ -314,7 +314,7 @@ function Encontros() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-45 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_85%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/04"
           eyebrow="O que acontece"
@@ -326,11 +326,11 @@ function Encontros() {
           }
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
           {items.map((it, i) => (
             <article
               key={i}
-              className="group relative flex flex-col gap-4 rounded-2xl border border-bp-border bg-bp-bg-elevated p-7 transition-all hover:-translate-y-1 hover:border-bp-accent/40 hover:bg-bp-bg-card md:p-8"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-bp-border bg-bp-bg-elevated p-5 transition-all hover:-translate-y-1 hover:border-bp-accent/40 hover:bg-bp-bg-card md:p-6"
             >
               <div className="flex items-center gap-4">
                 <span className="flex size-14 items-center justify-center rounded-xl border border-bp-accent/30 bg-bp-accent-soft font-display text-base text-bp-accent">
@@ -371,7 +371,7 @@ function Diferencial() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg-elevated">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/05"
           eyebrow="Diferencial"
@@ -383,13 +383,13 @@ function Diferencial() {
           }
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
           {items.map((it, i) => {
             const placement = i === items.length - 2 ? "lg:col-start-2" : "";
             return (
               <article
                 key={i}
-                className={`group flex flex-col gap-4 rounded-2xl border border-bp-border bg-bp-bg p-7 transition-all hover:-translate-y-1 hover:border-bp-accent/30 hover:bg-bp-bg-card lg:col-span-2 ${placement}`}
+                className={`group flex flex-col gap-4 rounded-2xl border border-bp-border bg-bp-bg p-5 transition-all hover:-translate-y-1 hover:border-bp-accent/30 hover:bg-bp-bg-card lg:col-span-2 ${placement}`}
               >
                 <div className="flex size-11 items-center justify-center rounded-xl border border-bp-accent/30 bg-bp-accent-soft text-bp-accent">
                   <span aria-hidden className="font-display text-lg">
@@ -424,7 +424,7 @@ function ProvaSocial() {
           Mais de <span className="text-bp-accent">100 empresários</span> já passaram por esse método.
         </h2>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
             "Donos de loja",
             "Donos de indústria",
@@ -445,7 +445,7 @@ function ProvaSocial() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
+        <div className="mt-8 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
           <div>
             <div className="font-display text-5xl text-bp-accent md:text-6xl">+100</div>
             <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Alunos formados</p>
@@ -484,7 +484,7 @@ function Incluido() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-4xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/07"
           eyebrow="O que está incluído"
@@ -523,7 +523,7 @@ function Investimento() {
   return (
     <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/08"
           eyebrow="Investimento"
@@ -536,7 +536,7 @@ function Investimento() {
           }
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
           {lotes.map((l, i) => (
             <div
               key={i}
@@ -573,7 +573,7 @@ function Investimento() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
+        <div className="mt-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-bp-accent/30 bg-bp-bg-card/60 p-8 backdrop-blur">
             <Users className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 text-xl font-semibold text-bp-text-bright">Combo Dupla · 15% off</h3>
@@ -619,7 +619,7 @@ function Logistica() {
   return (
     <AnimatedSection className="relative isolate overflow-hidden border-b border-bp-border bg-bp-bg">
       <AiBackground className="pointer-events-none absolute inset-0 h-full w-full opacity-35 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)]" />
-      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-20">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-10 md:py-14">
         <SectionHeading
           number="/09"
           eyebrow="Logística"
@@ -630,8 +630,8 @@ function Logistica() {
           }
         />
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-7">
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-5">
             <MapPin className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 font-display text-2xl text-bp-text-bright">Onde</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-primary">
@@ -644,7 +644,7 @@ function Logistica() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-7">
+          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-5">
             <Calendar className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 font-display text-2xl text-bp-text-bright">Quando</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-primary">
@@ -657,7 +657,7 @@ function Logistica() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-7">
+          <div className="rounded-2xl border border-bp-border bg-bp-bg-elevated p-5">
             <Sparkles className="size-7 text-bp-accent" strokeWidth={1.6} />
             <h3 className="mt-4 font-display text-2xl text-bp-text-bright">O que levar</h3>
             <p className="mt-3 text-base leading-relaxed text-bp-text-primary">
