@@ -17,6 +17,7 @@ import { JunhoCtaButton } from "@/components/JunhoCtaButton";
 import { JunhoPixelEvent } from "@/components/JunhoPixelEvent";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { CountdownBanner } from "@/components/CountdownBanner";
+import { LoteCards } from "@/components/LoteCards";
 
 export const metadata: Metadata = {
   title: "Curso IA para Empresários · Junho 2026 | Blank Prime",
@@ -536,12 +537,6 @@ function Incluido() {
 
 // ─── SEÇÃO 8 · AÇÃO (Investimento) ──────────────────────────────────────
 function Investimento() {
-  const lotes = [
-    { tag: "🟢 1º LOTE", data: "até 17/05", individual: "R$ 697", individualParc: "12x", dupla: "R$ 1.184", duplaPP: "R$ 592/pessoa", destaque: true },
-    { tag: "🟡 2º LOTE", data: "18/05 a 02/06", individual: "R$ 897", dupla: "R$ 1.524", destaque: false },
-    { tag: "🔴 3º LOTE", data: "03/06 a 08/06", individual: "R$ 1.097", dupla: "R$ 1.864", destaque: false },
-  ];
-
   return (
     <AnimatedSection className="section-light relative isolate overflow-hidden border-b border-bp-border">
       <LightFx />
@@ -558,42 +553,9 @@ function Investimento() {
           }
         />
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {lotes.map((l, i) => (
-            <div
-              key={i}
-              className={`relative flex flex-col rounded-2xl border p-8 backdrop-blur transition-all hover:-translate-y-1 ${
-                l.destaque
-                  ? "border-bp-accent bg-bp-bg-card shadow-[0_20px_60px_-20px_rgba(31,231,79,0.6)] md:scale-105"
-                  : "border-bp-border bg-bp-bg-card/60"
-              }`}
-            >
-              {l.destaque && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-bp-accent px-4 py-1 font-mono text-[11px] uppercase tracking-wider text-black">
-                  Lote vigente
-                </span>
-              )}
-              <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-text-muted">
-                {l.tag} · {l.data}
-              </div>
-              <div className="mt-6 space-y-5">
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">Individual</div>
-                  <div className="mt-1 font-display text-2xl text-bp-text-bright sm:text-3xl sm:text-4xl">{l.individual}</div>
-                  {l.individualParc && (
-                    <div className="text-xs text-bp-text-muted">em {l.individualParc} sem juros</div>
-                  )}
-                </div>
-                <div className="h-px bg-bp-border" />
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-bp-text-muted">Combo Dupla</div>
-                  <div className="mt-1 font-display text-2xl text-bp-text-bright sm:text-3xl">{l.dupla}</div>
-                  {l.duplaPP && <div className="text-xs text-bp-text-muted">{l.duplaPP}</div>}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Cards de lote — client component que detecta qual lote está
+            vigente AGORA (baseado em src/lib/lotes.ts) e marca dinâmico. */}
+        <LoteCards />
 
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           <div className="rounded-2xl border border-bp-accent/30 bg-bp-bg-card/60 p-8 backdrop-blur">
