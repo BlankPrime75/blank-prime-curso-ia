@@ -29,10 +29,13 @@ export function JunhoCtaButton({
     ? `https://wa.me/5551993304978?text=${encodeURIComponent(message)}`
     : WHATSAPP_JUNHO;
 
+  // Mobile: botão "lg" e "xl" são FLEX (full width do container do CTA),
+  // com altura/tipografia menores pra não estourar margem no celular.
+  // Em sm+ voltam pra inline-flex e respiram com px maior.
   const sizes = {
     md: "h-11 px-5 text-sm",
-    lg: "h-14 px-7 text-base",
-    xl: "h-16 px-9 text-lg",
+    lg: "flex sm:inline-flex w-full sm:w-auto h-12 sm:h-14 px-5 sm:px-7 text-sm sm:text-base",
+    xl: "flex sm:inline-flex w-full sm:w-auto h-12 sm:h-16 px-5 sm:px-9 text-sm sm:text-lg",
   } as const;
 
   const variants = {
@@ -55,7 +58,7 @@ export function JunhoCtaButton({
       rel="noopener noreferrer"
       onClick={() => trackWhatsAppClick(`junho-${origem}`)}
       className={cn(
-        "shine group inline-flex items-center justify-center gap-2.5 rounded-full font-semibold uppercase tracking-wide transition-all duration-300 select-none whitespace-nowrap",
+        "shine group items-center justify-center gap-2 sm:gap-2.5 rounded-full font-semibold uppercase tracking-wide transition-all duration-300 select-none text-center",
         sizes[size],
         variants[variant],
         className,

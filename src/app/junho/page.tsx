@@ -53,9 +53,9 @@ function Atencao() {
       <div className="pointer-events-none absolute right-[-10%] top-[10%] h-[400px] w-[400px] rounded-full bg-bp-accent/[0.07] blur-3xl ai-pulse [animation-delay:1.6s]" />
       <div className="pointer-events-none absolute -bottom-24 left-[-10%] h-[360px] w-[360px] rounded-full bg-bp-accent/[0.05] blur-3xl ai-pulse [animation-delay:3.2s]" />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-6 pt-8 pb-14 md:pt-10 md:pb-18 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-        {/* COLUNA TEXTO */}
-        <div>
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 px-6 pt-8 pb-14 md:pt-10 md:pb-18 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
+        {/* COLUNA TEXTO — em mobile fica DEPOIS da foto (ordem invertida) */}
+        <div className="order-2 lg:order-1">
           {/* Badges do topo */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-secondary">
             <span className="inline-flex items-center gap-1.5 text-bp-accent">
@@ -68,18 +68,18 @@ function Atencao() {
             <span>Em Canoas</span>
           </div>
 
-          {/* HEADLINE: 2 anos atrasado */}
-          <h1 className="mt-8 leading-[0.92]">
-            <span className="block font-display text-[clamp(2.75rem,7.5vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
+          {/* HEADLINE: 2 anos atrasado. Tamanho min reduzido pra não estourar mobile. */}
+          <h1 className="mt-6 leading-[0.92] sm:mt-8">
+            <span className="block font-display text-[clamp(2rem,7vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
               Você está
             </span>
-            <span className="block font-display text-[clamp(3rem,9vw,6.5rem)] uppercase tracking-tight text-bp-accent text-glow-green">
+            <span className="block font-display text-[clamp(2.5rem,9vw,6.5rem)] uppercase tracking-tight text-bp-accent text-glow-green">
               2 anos
             </span>
-            <span className="block font-display text-[clamp(2.75rem,7.5vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
+            <span className="block font-display text-[clamp(2rem,7vw,5.5rem)] uppercase tracking-tight text-bp-text-bright">
               atrasado.
             </span>
-            <span className="mt-3 block font-serif-italic text-[clamp(1.5rem,3.5vw,2.5rem)] text-bp-text-bright/85">
+            <span className="mt-3 block font-serif-italic text-[clamp(1.125rem,3.5vw,2.5rem)] text-bp-text-bright/85">
               E cada mês custa{" "}
               <span className="not-italic font-display uppercase text-bp-accent">
                 mais caro.
@@ -88,7 +88,7 @@ function Atencao() {
           </h1>
 
           {/* Tagline */}
-          <p className="mt-8 max-w-xl text-pretty text-lg text-bp-text-primary md:text-xl">
+          <p className="mt-6 max-w-xl text-pretty text-base text-bp-text-primary sm:mt-8 sm:text-lg md:text-xl">
             A IA já chegou no seu mercado. Seu concorrente já está usando.{" "}
             <span className="text-bp-text-bright">
               Junho é a sua chance de virar o jogo.
@@ -96,7 +96,7 @@ function Atencao() {
           </p>
 
           {/* Bullets com ícones verdes */}
-          <ul className="mt-10 space-y-3.5">
+          <ul className="mt-8 space-y-3 sm:mt-10 sm:space-y-3.5">
             {HERO_FACTS.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-start gap-3.5">
                 <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-bp-accent/30 bg-bp-accent-soft text-bp-accent">
@@ -110,54 +110,56 @@ function Atencao() {
           </ul>
 
           {/* CTA */}
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
             <JunhoCtaButton origem="hero" size="xl">
               Garantir minha vaga
             </JunhoCtaButton>
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted">
+            <span className="text-center font-mono text-[11px] uppercase tracking-[0.22em] text-bp-text-muted sm:text-left">
               Conversa direta · sem formulário
             </span>
           </div>
 
           {/* Tag PRESENCIAL no rodapé */}
-          <div className="mt-12 flex items-center gap-4">
+          <div className="mt-10 flex items-center gap-4 sm:mt-12">
             <span className="h-px flex-1 bg-gradient-to-r from-bp-accent/40 to-transparent" />
-            <span className="font-display text-2xl uppercase tracking-[0.32em] text-bp-accent text-glow-green">
+            <span className="font-display text-lg uppercase tracking-[0.32em] text-bp-accent text-glow-green sm:text-2xl">
               Presencial
             </span>
             <span className="h-px flex-1 bg-gradient-to-l from-bp-accent/40 to-transparent" />
           </div>
         </div>
 
-        {/* COLUNA VISUAL · foto do instrutor (4:5) */}
-        <aside className="relative hidden lg:block">
+        {/* COLUNA VISUAL · foto do instrutor.
+            Mobile: aparece NO TOPO, contida em max-w-xs (320px) pra não dominar.
+            Desktop: vai pro lado direito normal. */}
+        <aside className="relative order-1 mx-auto w-full max-w-xs lg:order-2 lg:mx-0 lg:max-w-none">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-bp-accent/25">
             <Image
               src="/instrutor.png"
               alt="Instrutor do curso IA para Empresários"
               fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
+              sizes="(min-width: 1024px) 45vw, (min-width: 640px) 50vw, 80vw"
               priority
               className="object-cover"
             />
 
             {/* vinheta */}
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/55 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/55 to-transparent sm:h-24" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/55 to-transparent sm:h-20" />
 
             {/* badges topo */}
-            <div className="absolute left-0 right-0 top-0 flex items-center justify-between px-5 py-4">
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-bp-accent text-glow-green">
+            <div className="absolute left-0 right-0 top-0 flex items-center justify-between px-4 py-3 sm:px-5 sm:py-4">
+              <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-bp-accent text-glow-green sm:text-[10px]">
                 3ª edição
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/80">
+              <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-white/80 sm:text-[10px]">
                 Junho 2026
               </span>
             </div>
 
             {/* faixa PRESENCIAL */}
-            <div className="absolute bottom-0 left-0 right-0 bg-bp-accent px-6 py-3 text-center">
-              <span className="font-display text-lg uppercase tracking-[0.32em] text-black">
+            <div className="absolute bottom-0 left-0 right-0 bg-bp-accent px-3 py-2 text-center sm:px-6 sm:py-3">
+              <span className="font-display text-xs uppercase tracking-[0.22em] text-black sm:text-lg sm:tracking-[0.32em]">
                 Presencial · Em Canoas
               </span>
             </div>
@@ -340,7 +342,7 @@ function Encontros() {
                   Encontro {i + 1}
                 </div>
               </div>
-              <h3 className="font-display text-2xl uppercase leading-tight tracking-tight text-bp-text-bright md:text-3xl">
+              <h3 className="font-display text-xl uppercase leading-tight tracking-tight text-bp-text-bright sm:text-2xl md:text-3xl">
                 {it.titulo}
               </h3>
               <p className="text-pretty text-base leading-relaxed text-bp-text-secondary md:text-lg">
@@ -420,7 +422,7 @@ function ProvaSocial() {
         <div className="font-mono text-xs uppercase tracking-[0.22em] text-bp-text-muted">
           /06 · Prova social
         </div>
-        <h2 className="mx-auto mt-6 max-w-4xl font-display text-balance text-4xl uppercase leading-[0.95] tracking-tight text-bp-text-bright sm:text-5xl md:text-6xl">
+        <h2 className="mx-auto mt-6 max-w-4xl font-display text-balance text-3xl uppercase leading-[0.95] tracking-tight text-bp-text-bright sm:text-4xl md:text-5xl lg:text-6xl">
           Mais de <span className="text-bp-accent">100 empresários</span> já passaram por esse método.
         </h2>
 
@@ -447,15 +449,15 @@ function ProvaSocial() {
 
         <div className="mt-8 grid gap-6 rounded-2xl border border-bp-accent/30 bg-bp-bg/60 p-8 backdrop-blur sm:grid-cols-3 md:p-10">
           <div>
-            <div className="font-display text-5xl text-bp-accent md:text-6xl">+100</div>
+            <div className="font-display text-4xl text-bp-accent sm:text-5xl md:text-6xl">+100</div>
             <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Alunos formados</p>
           </div>
           <div>
-            <div className="font-display text-5xl text-bp-accent md:text-6xl">3</div>
+            <div className="font-display text-4xl text-bp-accent sm:text-5xl md:text-6xl">3</div>
             <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Edições validadas</p>
           </div>
           <div>
-            <div className="font-display text-5xl text-bp-accent md:text-6xl">100%</div>
+            <div className="font-display text-4xl text-bp-accent sm:text-5xl md:text-6xl">100%</div>
             <p className="mt-2 text-sm uppercase tracking-wider text-bp-text-muted">Aplicação prática</p>
           </div>
         </div>
@@ -557,7 +559,7 @@ function Investimento() {
               <div className="mt-6 space-y-5">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-bp-text-muted">Individual</div>
-                  <div className="mt-1 font-display text-4xl text-bp-text-bright">{l.individual}</div>
+                  <div className="mt-1 font-display text-2xl text-bp-text-bright sm:text-3xl sm:text-4xl">{l.individual}</div>
                   {l.individualParc && (
                     <div className="text-xs text-bp-text-muted">em {l.individualParc} sem juros</div>
                   )}
@@ -565,7 +567,7 @@ function Investimento() {
                 <div className="h-px bg-bp-border" />
                 <div>
                   <div className="text-xs uppercase tracking-wider text-bp-text-muted">Combo Dupla</div>
-                  <div className="mt-1 font-display text-3xl text-bp-text-bright">{l.dupla}</div>
+                  <div className="mt-1 font-display text-2xl text-bp-text-bright sm:text-3xl">{l.dupla}</div>
                   {l.duplaPP && <div className="text-xs text-bp-text-muted">{l.duplaPP}</div>}
                 </div>
               </div>
@@ -687,7 +689,7 @@ function CtaFinal() {
           Última chamada
         </div>
 
-        <h2 className="mt-8 font-display text-balance text-5xl uppercase leading-[0.94] tracking-tight text-bp-text-bright sm:text-6xl md:text-7xl">
+        <h2 className="mt-6 font-display text-balance text-3xl uppercase leading-[0.94] tracking-tight text-bp-text-bright sm:mt-8 sm:text-5xl md:text-6xl lg:text-7xl">
           Dia 17 de maio o preço <span className="text-bp-accent">sobe R$ 200.</span>
           <br className="hidden sm:block" />
           <span className="font-serif-italic text-bp-text-bright/90 normal-case tracking-tight">
@@ -712,7 +714,7 @@ function CtaFinal() {
           </JunhoCtaButton>
           <a
             href="tel:+5551993304978"
-            className="font-display text-3xl text-bp-text-bright transition-colors hover:text-bp-accent md:text-4xl"
+            className="font-display text-2xl text-bp-text-bright transition-colors hover:text-bp-accent sm:text-3xl md:text-4xl"
           >
             (51) 99330-4978
           </a>
